@@ -1,0 +1,53 @@
+{
+  "id": "231cfae2-3a10-4b1d-afee-69fdcfbd050d",
+  "name": "Vulkan Verlag Customizations NAS",
+  "publisher": "NAS conception GmbH",
+  "version": "24.20250109.0.1",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "a22a1733-7aa5-4e67-aa73-98473b439663",
+      "name": "Vulkan Verlag Sales Extension",
+      "publisher": "Cosmo Consult GmbH Muenster",
+      "version": "17.1.48.2"
+    },
+    {
+      "id": "6f0293d3-86fc-4ff8-9632-54a580be6546",
+      "name": "ForNAV Core",
+      "publisher": "ForNAV",
+      "version": "7.0.0.4"
+    },
+    {
+      "id": "83326d6d-11f8-49fd-981a-6f266a7c8d81",
+      "name": "Customizable Report Pack",
+      "publisher": "ForNAV",
+      "version": "7.0.0.4"
+    },
+    {
+      "id": "9347ed4c-a512-4ff0-a15e-6344804918f9",
+      "name": "ForNAV E-invoicing",
+      "publisher": "ForNAV",
+      "version": "1.0.0.0"
+    }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  
+  "application": "21.0.0.0",
+  "idRanges": [
+    {
+      "from": 60700,
+      "to": 60749
+    }
+  ],
+  "features": ["TranslationFile"],
+  "contextSensitiveHelpUrl": "http://www.nasconception.de/help",
+  "resourceExposurePolicy": {"allowDebugging": true,"allowDownloadingSource": true,"includeSourceInSymbolFile": true, "applyToDevExtension": false},
+  "runtime": "12.2"
+}
