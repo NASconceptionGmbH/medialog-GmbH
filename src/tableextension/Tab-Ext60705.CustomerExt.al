@@ -7,6 +7,12 @@ tableextension 60705 "CustomerExt" extends Customer
             Caption = 'CRM ID';
             DataClassification = ToBeClassified;
         }
+        field(60701; "ID Location"; Text[100])
+        {
+            Caption = 'MyField';
+            DataClassification = ToBeClassified;
+        }
+
 
     }
 

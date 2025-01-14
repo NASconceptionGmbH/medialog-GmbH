@@ -22,6 +22,33 @@ pageextension 60714 "IntegrationTableMapp" extends "Integration Table Mapping Li
                 RunPageMode = View;
                 ToolTip = 'View fields in Dynamics 365 Sales integration tables that are mapped to fields in Business Central.';
             }
+
+            action(RefreshMapping)
+            {
+                ApplicationArea = All;
+                Caption = 'Add all IFU Mappings';
+                trigger OnAction()
+                var
+                    medialogSyncSetupL: Codeunit "medialog Sync Setup";
+                begin
+                    medialogSyncSetupL.AddAllMappings();
+                end;
+            }
+            action(UpdateMapping)
+            {
+                ApplicationArea = All;
+                Caption = 'Add New Mapping';
+
+
+                trigger OnAction()
+                var
+                    medialogSyncSetupL: Codeunit "medialog Sync Setup";
+                begin
+                    medialogSyncSetupL.UpdateMapping();
+
+                end;
+            }
+
         }
     }
 }

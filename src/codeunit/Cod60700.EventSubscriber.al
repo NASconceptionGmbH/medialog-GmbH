@@ -42,70 +42,70 @@ codeunit 60700 "EventSubscriber"
         TableFilterL: Text;
 
     begin
-        //KUNDENARTEN/TypeOfBusiness
-        TableFilterL := '';
-        InsertIntegrationTableMapping(IntegrationTableMapping, 'Kundenarten', DATABASE::"Type of Business", DATABASE::"CDS cos_typeofcustomer", CDScos_typeofcustomer.FieldNo(cos_typeofcustomerId), CDScos_typeofcustomer.FieldNo(ModifiedOn), '', '', false, IntegrationFieldMapping.Direction::Bidirectional, TableFilterL);
-        InsertIntegrationFieldMapping('Kundenarten', TypeofBusinessL.FieldNo(Code), CDScos_typeofcustomer.FieldNo(cos_name), IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('Kundenarten', TypeofBusinessL.FieldNo("CRM GUID"), CDScos_typeofcustomer.FieldNo(cos_typeofcustomerId), IntegrationFieldMapping.Direction::FromIntegrationTable, '', true, false);
+        // //KUNDENARTEN/TypeOfBusiness
+        // TableFilterL := '';
+        // InsertIntegrationTableMapping(IntegrationTableMapping, 'Kundenarten', DATABASE::"Type of Business", DATABASE::"CDS cos_typeofcustomer", CDScos_typeofcustomer.FieldNo(cos_typeofcustomerId), CDScos_typeofcustomer.FieldNo(ModifiedOn), '', '', false, IntegrationFieldMapping.Direction::Bidirectional, TableFilterL);
+        // InsertIntegrationFieldMapping('Kundenarten', TypeofBusinessL.FieldNo(Code), CDScos_typeofcustomer.FieldNo(cos_name), IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('Kundenarten', TypeofBusinessL.FieldNo("CRM GUID"), CDScos_typeofcustomer.FieldNo(cos_typeofcustomerId), IntegrationFieldMapping.Direction::FromIntegrationTable, '', true, false);
 
 
-        //CUSTOMER ID 
-        InsertIntegrationFieldMapping('Customer', CUstomer.FieldNo("CRM GUID"), CRMAccount.FieldNo(AccountId), IntegrationFieldMapping.Direction::FromIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('No.', CUstomer.FieldNo("No."), CRMAccount.FieldNo(new_bccustomerno), IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // //CUSTOMER ID 
+        // InsertIntegrationFieldMapping('Customer', CUstomer.FieldNo("CRM GUID"), CRMAccount.FieldNo(AccountId), IntegrationFieldMapping.Direction::FromIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('No.', CUstomer.FieldNo("No."), CRMAccount.FieldNo(new_bccustomerno), IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
 
-        //Product/Item ID
-        InsertIntegrationFieldMapping('ITEM-PRODUCT', Item.FieldNo("CRM GUID"), CRMProduct.FieldNo(ProductId), IntegrationFieldMapping.Direction::FromIntegrationTable, '', true, false);
-
-
-        //MERKMAL
-        TableFilterL := 'VERSION(1) SORTING(Field1,Field2) WHERE(Field1=1(21))';
-        InsertIntegrationTableMapping(IntegrationTableMapping, 'Merkmale', DATABASE::"Item Attribute Value", DATABASE::"CDS cos_characteristic", CDScos_characteristic.FieldNo(cos_characteristicId), CDScos_characteristic.FieldNo(ModifiedOn), '', '', false, IntegrationFieldMapping.Direction::ToIntegrationTable, TableFilterL);
-        InsertIntegrationFieldMapping('Merkmale', ItemAttributeValue.FieldNo(Value), CDScos_characteristic.FieldNo(cos_name), IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('Merkmale', ItemAttributeValue.FieldNo("CRM GUID"), CDScos_characteristic.FieldNo(cos_characteristicId), IntegrationFieldMapping.Direction::FromIntegrationTable, '', true, false);
-
-        //SPARTEN
-        TableFilterL := 'VERSION(1) SORTING(Field1,Field2) WHERE(Field1=1(19))';
-        InsertIntegrationTableMapping(IntegrationTableMapping, 'Sparten', DATABASE::"Item Attribute Value", DATABASE::"CDS cos_sparten", CDScos_sparten.FieldNo(cos_spartenId), CDScos_sparten.FieldNo(ModifiedOn), '', '', false, IntegrationFieldMapping.Direction::ToIntegrationTable, TableFilterL);
-        InsertIntegrationFieldMapping('Sparten', ItemAttributeValue.FieldNo(Value), CDScos_sparten.FieldNo(cos_name), IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('Sparten', ItemAttributeValue.FieldNo("CRM GUID"), CDScos_sparten.FieldNo(cos_spartenId), IntegrationFieldMapping.Direction::FromIntegrationTable, '', true, false);
+        // //Product/Item ID
+        // InsertIntegrationFieldMapping('ITEM-PRODUCT', Item.FieldNo("CRM GUID"), CRMProduct.FieldNo(ProductId), IntegrationFieldMapping.Direction::FromIntegrationTable, '', true, false);
 
 
-        //PostInvoice HEADER-SELL TO
-        TableFilterL := '';
-        InsertIntegrationTableMapping(IntegrationTableMapping, 'INVOICE-HEAD-SELLTO', DATABASE::"Sales Invoice Header", DATABASE::"CRM Invoice", CRMInvoice.FieldNo(InvoiceId), CRMInvoice.FieldNo(ModifiedOn), '', '', false, IntegrationFieldMapping.Direction::ToIntegrationTable, TableFilterL);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("No."), 11, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Currency Code"), 74, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Due Date"), 68, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to Name"), 30, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to Address"), 33, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to Address 2"), 34, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to City"), 36, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to Country/Region Code"), 38, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to Post Code"), 39, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to County"), 37, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Shipment Date"), 67, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to Customer Name"), 42, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to Address"), 45, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to Address 2"), 46, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to City"), 48, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to Country/Region Code"), 50, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to Post Code"), 51, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to County"), 49, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Amount"), 19, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Amount Including VAT"), 16, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Invoice Discount Amount"), 14, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Shipping Agent Code"), 97, IntegrationFieldMapping.Direction::Bidirectional, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Payment Terms Code"), 96, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // //MERKMAL
+        // TableFilterL := 'VERSION(1) SORTING(Field1,Field2) WHERE(Field1=1(21))';
+        // InsertIntegrationTableMapping(IntegrationTableMapping, 'Merkmale', DATABASE::"Item Attribute Value", DATABASE::"CDS cos_characteristic", CDScos_characteristic.FieldNo(cos_characteristicId), CDScos_characteristic.FieldNo(ModifiedOn), '', '', false, IntegrationFieldMapping.Direction::ToIntegrationTable, TableFilterL);
+        // InsertIntegrationFieldMapping('Merkmale', ItemAttributeValue.FieldNo(Value), CDScos_characteristic.FieldNo(cos_name), IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('Merkmale', ItemAttributeValue.FieldNo("CRM GUID"), CDScos_characteristic.FieldNo(cos_characteristicId), IntegrationFieldMapping.Direction::FromIntegrationTable, '', true, false);
 
-        //Posted Invoice LINES-SELL TO
-        TableFilterL := '';
-        InsertIntegrationTableMapping(IntegrationTableMapping, 'INVOICE-LINE-SELLTO', DATABASE::"Sales Invoice Line", DATABASE::"CRM Invoicedetail", CRMInvoicedetail.FieldNo(InvoiceDetailId), CRMInvoicedetail.FieldNo(ModifiedOn), '', '', false, IntegrationFieldMapping.Direction::ToIntegrationTable, TableFilterL);
-        InsertIntegrationFieldMapping('INVOICE-LINE-SELLTO', SalesInvoiceLine.FieldNo(Quantity), 11, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-LINE-SELLTO', SalesInvoiceLine.FieldNo("Line Discount Amount"), 12, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-LINE-SELLTO', SalesInvoiceLine.FieldNo("Unit Price"), 15, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-LINE-SELLTO', 0, 21, IntegrationFieldMapping.Direction::ToIntegrationTable, '1', true, false);
-        InsertIntegrationFieldMapping('INVOICE-LINE-SELLTO', SalesInvoiceLine.FieldNo(Amount), 16, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
-        InsertIntegrationFieldMapping('INVOICE-LINE-SELLTO', SalesInvoiceLine.FieldNo("Amount Including VAT"), 19, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // //SPARTEN
+        // TableFilterL := 'VERSION(1) SORTING(Field1,Field2) WHERE(Field1=1(19))';
+        // InsertIntegrationTableMapping(IntegrationTableMapping, 'Sparten', DATABASE::"Item Attribute Value", DATABASE::"CDS cos_sparten", CDScos_sparten.FieldNo(cos_spartenId), CDScos_sparten.FieldNo(ModifiedOn), '', '', false, IntegrationFieldMapping.Direction::ToIntegrationTable, TableFilterL);
+        // InsertIntegrationFieldMapping('Sparten', ItemAttributeValue.FieldNo(Value), CDScos_sparten.FieldNo(cos_name), IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('Sparten', ItemAttributeValue.FieldNo("CRM GUID"), CDScos_sparten.FieldNo(cos_spartenId), IntegrationFieldMapping.Direction::FromIntegrationTable, '', true, false);
+
+
+        // //PostInvoice HEADER-SELL TO
+        // TableFilterL := '';
+        // InsertIntegrationTableMapping(IntegrationTableMapping, 'INVOICE-HEAD-SELLTO', DATABASE::"Sales Invoice Header", DATABASE::"CRM Invoice", CRMInvoice.FieldNo(InvoiceId), CRMInvoice.FieldNo(ModifiedOn), '', '', false, IntegrationFieldMapping.Direction::ToIntegrationTable, TableFilterL);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("No."), 11, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Currency Code"), 74, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Due Date"), 68, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to Name"), 30, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to Address"), 33, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to Address 2"), 34, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to City"), 36, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to Country/Region Code"), 38, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to Post Code"), 39, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Ship-to County"), 37, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Shipment Date"), 67, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to Customer Name"), 42, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to Address"), 45, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to Address 2"), 46, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to City"), 48, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to Country/Region Code"), 50, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to Post Code"), 51, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Sell-to County"), 49, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Amount"), 19, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Amount Including VAT"), 16, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Invoice Discount Amount"), 14, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Shipping Agent Code"), 97, IntegrationFieldMapping.Direction::Bidirectional, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-HEAD-SELLTO', SalesInvoiceHeader.FieldNo("Payment Terms Code"), 96, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+
+        // //Posted Invoice LINES-SELL TO
+        // TableFilterL := '';
+        // InsertIntegrationTableMapping(IntegrationTableMapping, 'INVOICE-LINE-SELLTO', DATABASE::"Sales Invoice Line", DATABASE::"CRM Invoicedetail", CRMInvoicedetail.FieldNo(InvoiceDetailId), CRMInvoicedetail.FieldNo(ModifiedOn), '', '', false, IntegrationFieldMapping.Direction::ToIntegrationTable, TableFilterL);
+        // InsertIntegrationFieldMapping('INVOICE-LINE-SELLTO', SalesInvoiceLine.FieldNo(Quantity), 11, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-LINE-SELLTO', SalesInvoiceLine.FieldNo("Line Discount Amount"), 12, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-LINE-SELLTO', SalesInvoiceLine.FieldNo("Unit Price"), 15, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-LINE-SELLTO', 0, 21, IntegrationFieldMapping.Direction::ToIntegrationTable, '1', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-LINE-SELLTO', SalesInvoiceLine.FieldNo(Amount), 16, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
+        // InsertIntegrationFieldMapping('INVOICE-LINE-SELLTO', SalesInvoiceLine.FieldNo("Amount Including VAT"), 19, IntegrationFieldMapping.Direction::ToIntegrationTable, '', true, false);
 
     end;
 

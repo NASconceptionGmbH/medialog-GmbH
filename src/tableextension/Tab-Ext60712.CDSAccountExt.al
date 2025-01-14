@@ -249,5 +249,12 @@
             Description = '';
             Caption = 'BC Debitor Nr.';
         }
+        field(60066; vv_id_location; Text[100])
+        {
+            ExternalName = 'vv_id_location';
+            ExternalType = 'String';
+            Description = '';
+            Caption = 'Adresse ID';
+        }
     }
 }
