@@ -256,5 +256,12 @@
             Description = '';
             Caption = 'Adresse ID';
         }
+        field(60067; vv_idjuristicperson; Text[100])
+        {
+            ExternalName = 'vv_idjuristicperson';
+            ExternalType = 'String';
+            Description = '';
+            Caption = 'Juristische Person ID';
+        }
     }
 }
