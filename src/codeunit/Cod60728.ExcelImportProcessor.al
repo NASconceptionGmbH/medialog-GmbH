@@ -12,9 +12,8 @@ codeunit 60728 ExcelImportProcessor
             CustomerL.validate("Payment Method Code", rec."Zahlungsformcode SEPA allg");
         if Rec.Zahlungsbedingungscode <> '' then
             CustomerL.validate("Payment Terms Code", Rec.Zahlungsbedingungscode);
-        if Rec."Belegsendeprofil Allgemein" = 'EMAIL' then
-            CustomerL.validate("Document Sending Profile", 'EMAIL');
-
+        // if Rec."Belegsendeprofil Allgemein" = 'EMAIL' then
+        //     CustomerL.validate("Document Sending Profile", 'EMAIL');
 
         CustomerL.modify();
     end;

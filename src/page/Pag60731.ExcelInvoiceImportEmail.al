@@ -89,6 +89,7 @@ page 60731 "Excel Invoice Import Email"
                     ExcelImportHeaderEmailL2: Record "Excel Import Header Email";
                 begin
                     ExcelImportHeaderEmailL.SetRange(processed, false);
+                    ExcelImportHeaderEmailL.SetRange(kind_of_communication, 'RE E-Mail');
                     if ExcelImportHeaderEmailL.FindSet() then
                         repeat
                             if not ExcelImportProcessorEmailL.run(ExcelImportHeaderEmailL) then begin

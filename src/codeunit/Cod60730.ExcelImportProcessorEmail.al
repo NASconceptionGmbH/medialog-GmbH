@@ -4,14 +4,29 @@ codeunit 60730 ExcelImportProcessorEmail
     trigger OnRun()
     var
         CustomerL: Record Customer;
+        CustomReportSelectionL: Record "Custom Report Selection";
     begin
         CustomerL.setrange(vv_id_location, Rec.id_location);
         CustomerL.FindFirst();
 
-        CustomerL."E-Mail" := Rec.communication_number;
-        CustomerL."Document Sending Profile" := 'EMAIL';
-        CustomerL.modify();
+        case
+            Rec.Belegsendeprofil of
+            'EMAIL':
+                begin
+                    CustomerL."E-Mail" := Rec.communication_number;
+                    CustomerL."Document Sending Profile" := 'EMAIL';
+                    CustomerL.modify();
 
+                    CustomReportSelectionL.init();
+                    CustomReportSelectionL."Source Type" := Database::customer;
+                    CustomReportSelectionL."Source No." := CustomerL."No.";
+                    CustomReportSelectionL.Usage := CustomReportSelectionL.Usage::"S.Invoice";
+                    CustomReportSelectionL."Report ID" := 60407;
+                    CustomReportSelectionL."Use for Email Attachment" := true;
+                    CustomReportSelectionL."Send To Email" := Rec.communication_number;
+                    if not CustomReportSelectionL.insert() then;
+                end;
+        end;
     end;
 
 
