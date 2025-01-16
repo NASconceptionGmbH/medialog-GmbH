@@ -75,7 +75,7 @@ page 60731 "Excel Invoice Import Email"
             }
             action("Process")
             {
-                Caption = 'Transform Lines';
+                Caption = 'Process';
                 Image = Invoice;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -100,7 +100,8 @@ page 60731 "Excel Invoice Import Email"
                                 ExcelImportHeaderEmailL2.error := '';
                                 ExcelImportHeaderEmailL2.processed := true;
                             end;
-                            ExcelImportHeaderEmailL2.Modify()
+                            ExcelImportHeaderEmailL2.Modify();
+                            commit;
                         until ExcelImportHeaderEmailL.next() = 0;
 
                 end;
