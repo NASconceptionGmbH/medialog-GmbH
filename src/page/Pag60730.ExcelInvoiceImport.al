@@ -23,19 +23,52 @@ page 60730 "Excel Invoice Import"
                 field("Entry No"; Rec."Entry No")
                 {
                 }
-                field(Description; Rec.Description)
+                field(id_juristic_person; Rec.id_juristic_person)
                 {
                 }
-                field("Date"; Rec.Date)
+                field(Debitorennr; Rec.Debitorennr)
                 {
                 }
-                field("Time"; Rec.Time)
+                field(customer_id; Rec.customer_id)
+                {
+                }
+                field(customer_type; Rec.customer_type)
+                {
+                }
+                field(Gesperrt; Rec.Gesperrt)
+                {
+                }
+                field("SEPA Abo"; Rec."SEPA Abo")
+                {
+                }
+                field("Zahlungsformcode SEPA ABO"; Rec."Zahlungsformcode SEPA ABO")
+                {
+                }
+                field("SEPA allgemein"; Rec."SEPA allgemein")
+                {
+                }
+                field("Zahlungsformcode SEPA allg"; Rec."Zahlungsformcode SEPA allg")
+                {
+                }
+                field("Belegsendeprofil ABO"; Rec."Belegsendeprofil ABO")
+                {
+                }
+                field(Zahlungsbedingungscode; Rec.Zahlungsbedingungscode)
+                {
+                }
+                field(adv_zahlungsziel; Rec.adv_zahlungsziel)
+                {
+                }
+                field(anz_e_invoice; Rec.anz_e_invoice)
+                {
+                }
+                field("Belegsendeprofil Allgemein"; Rec."Belegsendeprofil Allgemein")
+                {
+                }
+                field(processed; Rec.processed)
                 {
                 }
 
-                field("Invoice No"; Rec."Invoice No")
-                {
-                }
             }
 
         }
@@ -56,9 +89,9 @@ page 60730 "Excel Invoice Import"
 
                 trigger OnAction()
                 var
-                    SetSetEmailFieldsL: Codeunit SetSetEmailFields;
+                    ExcelImportProcessorL: Codeunit ExcelImportProcessor;
                 begin
-                    SetSetEmailFieldsL.ImportExcel();
+                    ExcelImportProcessorL.ImportExcel();
                 end;
             }
             action("Process")
@@ -71,26 +104,29 @@ page 60730 "Excel Invoice Import"
 
                 trigger OnAction()
                 var
-                    ExcelInvoiceImportL: Codeunit SetSetEmailFields;
+                    ExcelImportProcessorL: Codeunit ExcelImportProcessor;
+                    CustomerL: Record Customer;
+                    ExcelImportHeaderL: Record "Excel Import Header";
+                    ExcelImportHeaderL2: Record "Excel Import Header";
                 begin
-                    ExcelInvoiceImportL.Transform();
-                end;
-            }
-            action("WriteInvoices")
-            {
-                Caption = 'SetEmailSent';
-                Image = Invoice;
-                Promoted = true;
-                PromotedCategory = Process;
-                ApplicationArea = All;
+                    ExcelImportHeaderL.SetRange(processed, false);
+                    if ExcelImportHeaderL.FindSet() then
+                        repeat
+                            if not ExcelImportProcessorL.run(ExcelImportHeaderL) then begin
+                                ExcelImportHeaderL2.get(ExcelImportHeaderL."Entry No");
+                                ExcelImportHeaderL2.error := GetLastErrorText();
+                            end else begin
+                                ExcelImportHeaderL2.get(ExcelImportHeaderL."Entry No");
+                                ExcelImportHeaderL2.error := '';
+                                ExcelImportHeaderL2.processed := true;
+                            end;
+                            ExcelImportHeaderL2.Modify()
+                        until ExcelImportHeaderL.next() = 0;
 
-                trigger OnAction()
-                var
-                    ExcelInvoiceImportL: Codeunit SetSetEmailFields;
-                begin
-                    ExcelInvoiceImportL.SetEmailFields();
                 end;
+
             }
+
             action(DeleteAll)
             {
                 ApplicationArea = All;

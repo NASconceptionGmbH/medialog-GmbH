@@ -1,34 +1,35 @@
-codeunit 60728 SetSetEmailFields
+codeunit 60730 ExcelImportProcessorEmail
 {
-    Permissions = tabledata "Sales Invoice Header" = rimd;
-
-    procedure SetEmailFields()
+    TableNo = "Excel Import Header Email";
+    trigger OnRun()
     var
-        SalesInvoiceHeaderL: Record "Sales Invoice Header";
-        ExcelImportHeaderL: Record "Excel Import Header";
+        CustomerL: Record Customer;
+        CustomReportSelectionL: Record "Custom Report Selection";
     begin
-        ExcelImportHeaderL.SetFilter("Invoice No", '<>%1', '');
-        if ExcelImportHeaderL.FindSet() then
-            repeat
-                if SalesInvoiceHeaderL.get(ExcelImportHeaderL."Invoice No") then begin
-                    SalesInvoiceHeaderL."Subscription Email Sent" := true;
-                    SalesInvoiceHeaderL.Modify();
+        CustomerL.setrange(vv_id_location, Rec.id_location);
+        CustomerL.FindFirst();
+
+        case
+            Rec.Belegsendeprofil of
+            'EMAIL':
+                begin
+                    CustomerL."E-Mail" := Rec.communication_number;
+                    CustomerL."Document Sending Profile" := 'EMAIL';
+                    CustomerL.modify();
+
+                    CustomReportSelectionL.init();
+                    CustomReportSelectionL."Source Type" := Database::customer;
+                    CustomReportSelectionL."Source No." := CustomerL."No.";
+                    CustomReportSelectionL.Usage := CustomReportSelectionL.Usage::"S.Invoice";
+                    CustomReportSelectionL."Report ID" := 60407;
+                    CustomReportSelectionL."Use for Email Attachment" := true;
+                    CustomReportSelectionL."Send To Email" := Rec.communication_number;
+                    if not CustomReportSelectionL.insert() then;
                 end;
-
-            until ExcelImportHeaderL.next() = 0;
+        end;
     end;
 
-    procedure Transform()
-    var
-        ExcelImportHeaderL: Record "Excel Import Header";
-    begin
-        if ExcelImportHeaderL.FindSet() then
-            repeat
-                ExcelImportHeaderL."Invoice No" := CopyStr(ExcelImportHeaderL.Description, StrLen(ExcelImportHeaderL.Description) - 8, 9);
-                ExcelImportHeaderL.Modify();
 
-            until ExcelImportHeaderL.next() = 0;
-    end;
 
 
     procedure ImportExcel()
@@ -78,9 +79,21 @@ codeunit 60728 SetSetEmailFields
         for RowNo := 2 to MaxRowNo do begin
             ExcelImportHeaderL.Init();
             ExcelImportHeaderL."Entry No" := 0;
-            Evaluate(ExcelImportHeaderL.Description, GetValueAtCell(RowNo, 2));
-            Evaluate(ExcelImportHeaderL.Time, GetValueAtCell(RowNo, 3));
-            Evaluate(ExcelImportHeaderL.Date, GetValueAtCell(RowNo, 4));
+            Evaluate(ExcelImportHeaderL.id_juristic_person, GetValueAtCell(RowNo, 1));
+            Evaluate(ExcelImportHeaderL.Debitorennr, GetValueAtCell(RowNo, 2));
+            Evaluate(ExcelImportHeaderL.customer_id, GetValueAtCell(RowNo, 3));
+            Evaluate(ExcelImportHeaderL.customer_type, GetValueAtCell(RowNo, 4));
+            Evaluate(ExcelImportHeaderL.Gesperrt, GetValueAtCell(RowNo, 5));
+            Evaluate(ExcelImportHeaderL."SEPA Abo", GetValueAtCell(RowNo, 6));
+            Evaluate(ExcelImportHeaderL."Zahlungsformcode SEPA ABO", GetValueAtCell(RowNo, 7));
+            Evaluate(ExcelImportHeaderL."SEPA allgemein", GetValueAtCell(RowNo, 8));
+            Evaluate(ExcelImportHeaderL."Zahlungsformcode SEPA allg", GetValueAtCell(RowNo, 9));
+            Evaluate(ExcelImportHeaderL."Belegsendeprofil ABO", GetValueAtCell(RowNo, 10));
+            Evaluate(ExcelImportHeaderL.Zahlungsbedingungscode, GetValueAtCell(RowNo, 11));
+            Evaluate(ExcelImportHeaderL.adv_zahlungsziel, GetValueAtCell(RowNo, 12));
+            Evaluate(ExcelImportHeaderL.anz_e_invoice, GetValueAtCell(RowNo, 13));
+            Evaluate(ExcelImportHeaderL."Belegsendeprofil Allgemein", GetValueAtCell(RowNo, 14));
+
 
             ExcelImportHeaderL.Insert();
         end;
