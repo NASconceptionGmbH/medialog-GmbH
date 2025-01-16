@@ -23,7 +23,7 @@ codeunit 60730 ExcelImportProcessorEmail
                     CustomReportSelectionL.Usage := CustomReportSelectionL.Usage::"S.Invoice";
                     CustomReportSelectionL."Report ID" := 60407;
                     CustomReportSelectionL."Use for Email Attachment" := true;
-                    CustomReportSelectionL."Send To Email" := Rec.communication_number;
+                    CustomReportSelectionL."Send To Email" := CopyStr(Rec.communication_number, 1, 200);
                     if not CustomReportSelectionL.insert() then;
                 end;
         end;

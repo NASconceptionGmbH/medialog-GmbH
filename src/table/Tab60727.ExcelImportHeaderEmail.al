@@ -20,7 +20,7 @@ table 60727 "Excel Import Header Email"
             Caption = 'id_communication';
             DataClassification = ToBeClassified;
         }
-        field(4; "communication_number"; text[80])
+        field(4; "communication_number"; text[250])
         {
             Caption = 'communication_number';
             DataClassification = ToBeClassified;
