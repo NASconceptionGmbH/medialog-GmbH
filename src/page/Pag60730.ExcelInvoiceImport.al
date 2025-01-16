@@ -20,9 +20,9 @@ page 60730 "Excel Invoice Import"
             repeater(Group)
             {
 
-                field("Entry No"; Rec."Entry No")
-                {
-                }
+                // field("Entry No"; Rec."Entry No")
+                // {
+                // }
                 field(id_juristic_person; Rec.id_juristic_person)
                 {
                 }
