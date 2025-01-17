@@ -2,9 +2,9 @@ codeunit 60731 Cleanuptemp
 {
     trigger OnRun()
     var
-        CustomReportLayoutL: Record "Custom Report Layout";
+        CustomReportSelection: Record "Custom Report Selection";
     begin
-        CustomReportLayoutL.DeleteAll();
+        CustomReportSelection.DeleteAll();
     end;
 
     var
