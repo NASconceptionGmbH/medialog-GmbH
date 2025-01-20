@@ -49,5 +49,5 @@
   "features": ["TranslationFile"],
   "contextSensitiveHelpUrl": "http://www.nasconception.de/help",
   "resourceExposurePolicy": {"allowDebugging": true,"allowDownloadingSource": true,"includeSourceInSymbolFile": true, "applyToDevExtension": false},
-  "runtime": "12.2"
+  "runtime": "13.0"
 }
