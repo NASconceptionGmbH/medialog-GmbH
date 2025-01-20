@@ -21,7 +21,7 @@ codeunit 60730 ExcelImportProcessorEmail
                     CustomReportSelectionL."Source Type" := Database::customer;
                     CustomReportSelectionL."Source No." := CustomerL."No.";
                     CustomReportSelectionL.Usage := CustomReportSelectionL.Usage::"S.Invoice";
-                    CustomReportSelectionL."Report ID" := 60407;
+                    CustomReportSelectionL."Report ID" := 60704;
                     CustomReportSelectionL."Use for Email Attachment" := true;
                     CustomReportSelectionL."Send To Email" := CopyStr(Rec.communication_number, 1, 200);
                     if not CustomReportSelectionL.insert() then;
