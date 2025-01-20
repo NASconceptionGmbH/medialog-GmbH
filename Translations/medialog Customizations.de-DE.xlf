@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="de-DE" original="Vulkan Verlag Customizations NAS.g.xlf">
+  <file datatype="xml" source-language="en-US" target-language="de-DE" original="medialog Customizations.g.xlf">
     <body>
       <group id="body">
         <trans-unit id="Table 3657246137 - Field 542690146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1599,17 +1599,47 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2680596775 - Field 3192175264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Date</source>
-          <target>Datum</target>
+        <trans-unit id="Table 2680596775 - Field 1631008626 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>adv_zahlungsziel</source>
+          <target></target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field Date - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field adv_zahlungsziel - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2680596775 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <target>Beschreibung</target>
+        <trans-unit id="Table 2680596775 - Field 1905668547 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>anz_e_invoice</source>
+          <target></target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field Description - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field anz_e_invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2680596775 - Field 3706164822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Belegsendeprofil ABO</source>
+          <target></target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field Belegsendeprofil ABO - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2680596775 - Field 1262959278 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Belegsendeprofil Allgemein</source>
+          <target></target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field Belegsendeprofil Allgemein - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2680596775 - Field 3535345170 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>customer_id</source>
+          <target></target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field customer_id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2680596775 - Field 3207883493 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>customer_type</source>
+          <target></target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field customer_type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2680596775 - Field 2982100952 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debitorennr</source>
+          <target></target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field Debitorennr - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2680596775 - Field 329134311 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reference</source>
@@ -1617,17 +1647,124 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field Entry No - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2680596775 - Field 3048794140 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invoice No</source>
+        <trans-unit id="Table 2680596775 - Field 3384288556 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>error</source>
           <target></target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field Invoice No - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field error - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2680596775 - Field 1230148255 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Time</source>
-          <target>Zeit</target>
+        <trans-unit id="Table 2680596775 - Field 2161606380 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gesperrt</source>
+          <target></target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field Time - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field Gesperrt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2680596775 - Field 4003192075 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>id_juristic_person</source>
+          <target></target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field id_juristic_person - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2680596775 - Field 3339143102 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>processed</source>
+          <target></target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field processed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2680596775 - Field 3483137213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEPA Abo</source>
+          <target></target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field SEPA Abo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2680596775 - Field 1569634757 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEPA allgemein</source>
+          <target></target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field SEPA allgemein - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2680596775 - Field 2119576963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Zahlungsbedingungscode</source>
+          <target></target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field Zahlungsbedingungscode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2680596775 - Field 2589393812 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Zahlungsformcode SEPA ABO</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field Zahlungsformcode SEPA ABO - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2680596775 - Field 1060105710 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Zahlungsformcode SEPA allg</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header - Field Zahlungsformcode SEPA allg - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 987245347 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Excel Sent Email Import</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header Email - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 987245347 - Field 4124216714 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Belegsendeprofil</source>
+          <target>[NAB: SUGGESTION]Belegsendeprofil</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header Email - Field Belegsendeprofil - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 987245347 - Field 203567640 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>communication_number</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header Email - Field communication_number - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 987245347 - Field 329134311 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reference</source>
+          <target>[NAB: SUGGESTION]Referenz</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header Email - Field Entry No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 987245347 - Field 3384288556 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>error</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header Email - Field error - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 987245347 - Field 3845060438 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>id_communication</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header Email - Field id_communication - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 987245347 - Field 3454519097 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>id_location</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header Email - Field id_location - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 987245347 - Field 2736188603 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>kind_of_communication</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header Email - Field kind_of_communication - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 987245347 - Field 3339143102 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>processed</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Excel Import Header Email - Field processed - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3186091976 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Erweiterte Buchungsmatrix</source>
@@ -2035,6 +2172,20 @@
           <target>Beschreibung</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Magazine Type - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1314819734 - Field 2315540138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Has Picture</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Magazine Type - Field Has Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1314819734 - Field 1594621544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <target>[NAB: SUGGESTION]Logo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Magazine Type - Field Picture - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3976401857 - Field 3295249951 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Comment Sales Line</source>
@@ -3170,8 +3321,9 @@
         </trans-unit>
         <trans-unit id="Codeunit 1807333796 - Method 9651589 - NamedType 448277372" size-unit="char" translate="yes" xml:space="preserve">
           <source>Das Lieferende ist %1</source>
-          <target></target>
+          <target>[NAB: REVIEW]</target>
           <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">The placeholder "%1" was found in source, but not in target.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit Create Annual Orders - Method CreateAnnualOrder - NamedType EndOfDeliveryErrorLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2733393626 - Method 2403168262 - NamedType 3482171416" size-unit="char" translate="yes" xml:space="preserve">
@@ -3179,6 +3331,34 @@
           <target>Sie sind im Begriff, die Vorlage auf ausgewählte Datensätze anzuwenden. Daten aus der Vorlage ersetzen Daten für die Datensätze. Möchten Sie fortfahren?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit EventSubscriber - Method Customer Templ. Mgt._OnBeforeUpdateMultipleFromTemplate - NamedType UpdateExistingValuesQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4107081296 - NamedType 511806700" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Excel file found!</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ExcelImportProcessor - NamedType NoFileFoundMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4107081296 - NamedType 4273853447" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please Choose the Excel file.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ExcelImportProcessor - NamedType UploadExcelMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 688720164 - NamedType 511806700" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Excel file found!</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ExcelImportProcessorEmail - NamedType NoFileFoundMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 688720164 - NamedType 4273853447" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please Choose the Excel file.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ExcelImportProcessorEmail - NamedType UploadExcelMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 3878593316 - Method 3391533298 - NamedType 1330060145" size-unit="char" translate="yes" xml:space="preserve">
           <source>Denied access from Server, permissionerror</source>
@@ -3221,18 +3401,6 @@
           <target>einrichten</target>
           <note from="Developer" annotates="general" priority="2">DEU="einrichten..."</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit RC Notification SP Connect - Method InstallApp - NamedType NotifActTxt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2158801647 - NamedType 511806700" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No Excel file found!</source>
-          <target></target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SetSetEmailFields - NamedType NoFileFoundMsg</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 2158801647 - NamedType 4273853447" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Please Choose the Excel file.</source>
-          <target></target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit SetSetEmailFields - NamedType UploadExcelMsg</note>
         </trans-unit>
         <trans-unit id="Codeunit 2877075793 - Method 3391533298 - NamedType 2421648719" size-unit="char" translate="yes" xml:space="preserve">
           <source>No communication</source>
@@ -4538,16 +4706,49 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Excel Invoice Import - Action DeleteAll - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1933484917 - Action 2675496269 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Transform Lines</source>
-          <target></target>
+          <source>Process</source>
+          <target>[NAB: REVIEW]</target>
           <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Excel Invoice Import - Action Process - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1933484917 - Action 876932433 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>SetEmailSent</source>
-          <target></target>
+        <trans-unit id="Page 3248617977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Excel Import Worksheet Email</source>
+          <target>[NAB: NOT TRANSLATED]</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Excel Invoice Import - Action WriteInvoices - Property Caption</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Excel Invoice Import Email - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3248617977 - Action 1772648229 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import data from excel.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Excel Invoice Import Email - Action &amp;Import - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3248617977 - Action 1772648229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Import</source>
+          <target>[NAB: SUGGESTION]Im&amp;portieren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Excel Invoice Import Email - Action &amp;Import - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3248617977 - Action 389138476 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Import Entries</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Excel Invoice Import Email - Action DeleteAll - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3248617977 - Action 2675496269 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target>[NAB: SUGGESTION]Verarbeiten</target>
+          <target>[NAB: SUGGESTION]Vorgang</target>
+          <target>[NAB: SUGGESTION]Verarbeitung</target>
+          <target>[NAB: SUGGESTION]Prozess</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Excel Invoice Import Email - Action Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3186091976 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>OSS Posting Matrix</source>
@@ -5311,11 +5512,39 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Item Issue Subform Salesperson - Action SalesInvoiceList - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 630003026 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Magazin Logo</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Magazine Type Picture - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3339541111 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Magazin Typ Einrichtung</source>
           <target>Magazin Typ Einrichtung</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Magazine Type Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3339541111 - Control 4172284633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <target>[NAB: SUGGESTION]Logo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Magazine Type Setup - Control Magazin - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3339541111 - Action 3119204463 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo löschen</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Magazine Type Setup - Action DeletePicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3339541111 - Action 2450800777 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo hochladen</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Magazine Type Setup - Action ImportMultipleItemPictures - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3815399838 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Buffer</source>
@@ -5867,8 +6096,9 @@
         </trans-unit>
         <trans-unit id="Report 2921707037 - NamedType 1597264648" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
-          <target>Sie erreichen mich unter %1 oder Sie antworten ganz einfach auf diese eMail.</target>
+          <target>[NAB: REVIEW]Sie erreichen mich unter %1 oder Sie antworten ganz einfach auf diese eMail.</target>
           <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">The placeholder "%1" was found in target 1 times, but was not found in source.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Print Documents Reminder - NamedType EmailBody11</note>
         </trans-unit>
         <trans-unit id="Report 2921707037 - NamedType 2234961265" size-unit="char" translate="yes" xml:space="preserve">
@@ -6861,6 +7091,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension IntegrationTableMapp - Action FieldMappingEditable - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 776371016 - Action 477685915 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2000056674">
+          <source>Add all IFU Mappings</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension IntegrationTableMapp - Action RefreshMapping - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 776371016 - Action 3447271199 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2000056674">
+          <source>Add New Mapping</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension IntegrationTableMapp - Action UpdateMapping - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4123091762 - Action 4112877437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Artikelbeschreibung aktualisieren</source>
           <target>Artikelbeschreibung aktualisieren</target>
@@ -7305,6 +7549,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension CDSAccountExt - Field TimeSpentByMeOnEmailAndMeetings - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1985111112 - Field 4270487954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2081291623">
+          <source>Juristische Person ID</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CDSAccountExt - Field vv_idjuristicperson - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1985111112 - Field 158270076 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2081291623">
+          <source>Adresse ID</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CDSAccountExt - Field vv_id_location - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 826446478 - Field 4031799727 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
           <source>Bcc Mail Address</source>
           <target>BCC Mail Adresse</target>
@@ -7341,11 +7599,39 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension CRMInvoice - Field new_urlsaveprocessed - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1713901351 - Field 3834061213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>A_ID</source>
+          <target>[NAB: SUGGESTION]A_ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field cos_a_id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1713901351 - Field 1822113536 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>N_ID</source>
+          <target>[NAB: SUGGESTION]N_ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field cos_n_id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1713901351 - Field 1777789181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>CRM ID</source>
           <target>CRM-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field CRM GUID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1713901351 - Field 4270487954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Juristische Person ID</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field vv_idjuristicperson - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1713901351 - Field 158270076 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Adresse ID</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension CustomerExt - Field vv_id_location - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3276313895 - Field 1844408171 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Basic Product</source>
@@ -8368,6 +8654,13 @@
           <note from="Developer" annotates="general" priority="2">DEU="unbekannter Fehler"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Install Sharepoint Connect - Control Step2 - Method CheckStatus - NamedType LabElse</note>
         </trans-unit>
+        <trans-unit id="Page 3339541111 - Action 3862845261 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo hochladen</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Magazine Type Setup - Action Processing - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2921707037 - ReportColumn 1458141688 - NamedType 3804037895" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dear Sir or Madam,</source>
           <target>Sehr geehrte Damen und Herren,</target>
@@ -8430,8 +8723,9 @@
         </trans-unit>
         <trans-unit id="Report 2921707037 - ReportColumn 1458141688 - NamedType 1597264648" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
-          <target></target>
+          <target>[NAB: REVIEW]</target>
           <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source contains only white-space, consider using 'Locked = true' to avoid translation of unnecessary texts. This note can be toggled with the setting 'NAB.PreferLockedTranslations'.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Print Documents Reminder - ReportColumn ItemDesc - NamedType EmailBody11</note>
         </trans-unit>
         <trans-unit id="Report 2921707037 - ReportColumn 1458141688 - NamedType 2234961265" size-unit="char" translate="yes" xml:space="preserve">
