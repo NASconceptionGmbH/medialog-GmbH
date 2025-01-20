@@ -21,9 +21,9 @@ codeunit 60730 ExcelImportProcessorEmail
                     CustomReportSelectionL."Source Type" := Database::customer;
                     CustomReportSelectionL."Source No." := CustomerL."No.";
                     CustomReportSelectionL.Usage := CustomReportSelectionL.Usage::"S.Invoice";
-                    CustomReportSelectionL."Report ID" := 60407;
+                    CustomReportSelectionL."Report ID" := 60704;
                     CustomReportSelectionL."Use for Email Attachment" := true;
-                    CustomReportSelectionL."Send To Email" := Rec.communication_number;
+                    CustomReportSelectionL."Send To Email" := CopyStr(Rec.communication_number, 1, 200);
                     if not CustomReportSelectionL.insert() then;
                 end;
         end;
@@ -70,7 +70,7 @@ codeunit 60730 ExcelImportProcessorEmail
 
     local procedure ImportHeaderData();
     var
-        ExcelImportHeaderL: Record "Excel Import Header";
+        ExcelImportHeaderL: Record "Excel Import Header Email";
         LineNo: Integer;
     begin
         LineNo := 0;
@@ -79,20 +79,11 @@ codeunit 60730 ExcelImportProcessorEmail
         for RowNo := 2 to MaxRowNo do begin
             ExcelImportHeaderL.Init();
             ExcelImportHeaderL."Entry No" := 0;
-            Evaluate(ExcelImportHeaderL.id_juristic_person, GetValueAtCell(RowNo, 1));
-            Evaluate(ExcelImportHeaderL.Debitorennr, GetValueAtCell(RowNo, 2));
-            Evaluate(ExcelImportHeaderL.customer_id, GetValueAtCell(RowNo, 3));
-            Evaluate(ExcelImportHeaderL.customer_type, GetValueAtCell(RowNo, 4));
-            Evaluate(ExcelImportHeaderL.Gesperrt, GetValueAtCell(RowNo, 5));
-            Evaluate(ExcelImportHeaderL."SEPA Abo", GetValueAtCell(RowNo, 6));
-            Evaluate(ExcelImportHeaderL."Zahlungsformcode SEPA ABO", GetValueAtCell(RowNo, 7));
-            Evaluate(ExcelImportHeaderL."SEPA allgemein", GetValueAtCell(RowNo, 8));
-            Evaluate(ExcelImportHeaderL."Zahlungsformcode SEPA allg", GetValueAtCell(RowNo, 9));
-            Evaluate(ExcelImportHeaderL."Belegsendeprofil ABO", GetValueAtCell(RowNo, 10));
-            Evaluate(ExcelImportHeaderL.Zahlungsbedingungscode, GetValueAtCell(RowNo, 11));
-            Evaluate(ExcelImportHeaderL.adv_zahlungsziel, GetValueAtCell(RowNo, 12));
-            Evaluate(ExcelImportHeaderL.anz_e_invoice, GetValueAtCell(RowNo, 13));
-            Evaluate(ExcelImportHeaderL."Belegsendeprofil Allgemein", GetValueAtCell(RowNo, 14));
+            Evaluate(ExcelImportHeaderL.id_location, GetValueAtCell(RowNo, 1));
+            Evaluate(ExcelImportHeaderL.id_communication, GetValueAtCell(RowNo, 2));
+            Evaluate(ExcelImportHeaderL.communication_number, GetValueAtCell(RowNo, 3));
+            Evaluate(ExcelImportHeaderL.Belegsendeprofil, GetValueAtCell(RowNo, 4));
+            Evaluate(ExcelImportHeaderL.kind_of_communication, GetValueAtCell(RowNo, 5));
 
 
             ExcelImportHeaderL.Insert();

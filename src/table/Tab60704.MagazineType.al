@@ -15,6 +15,17 @@ table 60704 "Magazine Type"
             Caption = 'Beschreibung';
             DataClassification = ToBeClassified;
         }
+        field(3; Picture; Media)
+        {
+            Caption = 'Picture';
+        }
+        field(4; "Has Picture"; Boolean)
+        {
+            Caption = 'Has Picture';
+            DataClassification = ToBeClassified;
+        }
+
+
     }
 
     keys

@@ -20,9 +20,9 @@ page 60730 "Excel Invoice Import"
             repeater(Group)
             {
 
-                field("Entry No"; Rec."Entry No")
-                {
-                }
+                // field("Entry No"; Rec."Entry No")
+                // {
+                // }
                 field(id_juristic_person; Rec.id_juristic_person)
                 {
                 }
@@ -68,6 +68,9 @@ page 60730 "Excel Invoice Import"
                 field(processed; Rec.processed)
                 {
                 }
+                field(error; Rec.error)
+                {
+                }
 
             }
 
@@ -96,7 +99,7 @@ page 60730 "Excel Invoice Import"
             }
             action("Process")
             {
-                Caption = 'Transform Lines';
+                Caption = 'Process';
                 Image = Invoice;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -120,7 +123,8 @@ page 60730 "Excel Invoice Import"
                                 ExcelImportHeaderL2.error := '';
                                 ExcelImportHeaderL2.processed := true;
                             end;
-                            ExcelImportHeaderL2.Modify()
+                            ExcelImportHeaderL2.Modify();
+                            commit();
                         until ExcelImportHeaderL.next() = 0;
 
                 end;

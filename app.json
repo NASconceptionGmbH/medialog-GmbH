@@ -2,7 +2,7 @@
   "id": "231cfae2-3a10-4b1d-afee-69fdcfbd050d",
   "name": "medialog Customizations",
   "publisher": "NAS conception GmbH",
-  "version": "24.20250115.0.1",
+  "version": "24.20250116.2.1",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -49,5 +49,5 @@
   "features": ["TranslationFile"],
   "contextSensitiveHelpUrl": "http://www.nasconception.de/help",
   "resourceExposurePolicy": {"allowDebugging": true,"allowDownloadingSource": true,"includeSourceInSymbolFile": true, "applyToDevExtension": false},
-  "runtime": "12.2"
+  "runtime": "13.0"
 }
