@@ -26,7 +26,7 @@ pageextension 60714 "IntegrationTableMapp" extends "Integration Table Mapping Li
             action(RefreshMapping)
             {
                 ApplicationArea = All;
-                Caption = 'Add all IFU Mappings';
+                Caption = 'Add all Mappings';
                 trigger OnAction()
                 var
                     medialogSyncSetupL: Codeunit "medialog Sync Setup";
