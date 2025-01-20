@@ -20,10 +20,7 @@ page 60703 "Magazine Type Setup"
                 {
                     ApplicationArea = All;
                 }
-                field(Picture; Rec.Picture)
-                {
-                    ApplicationArea = All;
-                }
+
 
             }
         }
