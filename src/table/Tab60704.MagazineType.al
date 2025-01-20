@@ -17,7 +17,7 @@ table 60704 "Magazine Type"
         }
         field(3; Picture; Media)
         {
-            Caption = 'Picture';
+            Caption = 'Logo';
         }
         field(4; "Has Picture"; Boolean)
         {
