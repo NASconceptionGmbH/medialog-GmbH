@@ -4,7 +4,7 @@ page 60735 "Excel Invoice Import VAT"
     Caption = 'Excel Import Worksheet VAT';
     DelayedInsert = true;
     InsertAllowed = false;
-    ModifyAllowed = false;
+    // ModifyAllowed = false;
     PageType = List;
     // SaveValues = true;
     SourceTable = "Excel Import Header VAT";
