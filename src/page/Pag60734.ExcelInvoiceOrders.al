@@ -4,7 +4,7 @@ page 60734 "Excel Invoice Orders"
     Caption = 'Excel Import Worksheet Orders';
     DelayedInsert = true;
     InsertAllowed = false;
-    ModifyAllowed = false;
+    ModifyAllowed = true;
     PageType = List;
     SourceTable = "Excel Import Orders";
     UsageCategory = Administration;
