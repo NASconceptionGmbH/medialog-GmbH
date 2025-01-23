@@ -7,11 +7,16 @@ codeunit 60733 ExcelImportProcessorOrders
         SalesLineL: Record "Sales Line";
         LineNoL: Integer;
         ContactL: Record Contact;
+        InvoiceDiscountL: Decimal;
+        SalesCalcDiscountByType: Codeunit "Sales - Calc Discount By Type";
     begin
         if not SalesHeaderL.get(SalesHeaderL."Document Type"::Order, Rec."order no") then begin
+
             SalesHeaderL.init();
+            SalesHeaderL.SetHideValidationDialog(true);
             SalesHeaderL."Document Type" := SalesHeaderL."Document Type"::Order;
             SalesHeaderL."No." := Rec."order no";
+            SalesHeaderL.Insert(true);
             SalesHeaderL.validate("Sell-to Customer No.", Rec.Debitor);
             SalesHeaderL.validate("Prices Including VAT", false);
             SalesHeaderL.validate("Order Date", Rec."Auftragsdatum");
@@ -39,13 +44,22 @@ codeunit 60733 ExcelImportProcessorOrders
             SalesHeaderL."interfall Sammelrechnung" := rec.interfall_sammelrechnung;
             SalesHeaderL."Payment Terms Code" := rec.Zahlungsbedingung;
             SalesHeaderL."External Document No." := CopyStr(rec."Externe Belegnummer", 1, 35);
-            //??
-            SalesHeaderL.validate("Posting Date", rec.Buchungsdatum);
+            if Rec."Email Rechnung" <> '' then
+                SalesHeaderL."Sell-to E-Mail" := CopyStr(Rec."Email Rechnung", 1, 80)
+            else if Rec."Debitor Kontakt Email" <> '' then
+                SalesHeaderL."Sell-to E-Mail" := CopyStr(Rec."Debitor Kontakt Email", 1, 80)
+            else if Rec."Email Agenturen Rechnung" <> '' then
+                SalesHeaderL."Sell-to E-Mail" := CopyStr(Rec."Email Agenturen Rechnung", 1, 80);
 
-            SalesHeaderL.Insert();
+            //??
+            if Rec.Buchungsdatum <> 0D then
+                SalesHeaderL.validate("Posting Date", rec.Buchungsdatum);
+
+            SalesHeaderL.modify();
         end;
 
         LineNoL := GetLineNo(Rec."order no");
+        SalesLineL.SetHideValidationDialog(true);
         SalesLineL.init();
         SalesLineL."Document Type" := SalesLineL."Document Type"::Order;
         SalesLineL."Document No." := SalesHeaderL."No.";
@@ -60,13 +74,29 @@ codeunit 60733 ExcelImportProcessorOrders
         //SalesLineL."Posting Date" := rec.Buchungsdatum  ??
         SalesLineL.insert();
 
-        LineNoL += 10000;
         if Rec.Zusatzzeile <> '' then begin
-
+            LineNoL += 10000;
+            SalesLineL.SetHideValidationDialog(true);
+            SalesLineL.init();
+            SalesLineL."Document Type" := SalesLineL."Document Type"::Order;
+            SalesLineL."Document No." := SalesHeaderL."No.";
+            SalesLineL."Line No." := LineNoL;
+            SalesLineL.Type := SalesLineL.Type::" ";
+            SalesLineL.Description := CopyStr(rec.Zusatzzeile, 1, 100);
+            // SalesLineL."Description 2" := CopyStr(rec.Zusatzzeile, 101, 50);
+            SalesLineL.insert();
         end;
 
+        Rec."BC Order No." := SalesHeaderL."No.";
+        Rec.modify;
 
-        //rechnungsrabatt!!
+        if Rec.Rechnungsrabatt <> 0 then begin
+            clear(SalesHeaderL);
+            SalesHeaderL.get(SalesHeaderL."Document Type"::Order, Rec."order no");
+            InvoiceDiscountL := GetInvoiceDiscountAmount(SalesHeaderL, Rec.Rechnungsrabatt);
+            if InvoiceDiscountL <> 0 then
+                SalesCalcDiscountByType.ApplyInvDiscBasedOnAmt(InvoiceDiscountL, SalesHeaderL);
+        end;
 
     end;
 
@@ -80,6 +110,26 @@ codeunit 60733 ExcelImportProcessorOrders
             exit(SalesLineL."Line No." + 10000);
 
         exit(10000);
+    end;
+
+    local procedure GetInvoiceDiscountAmount(SalesHeader: record "Sales Header"; DiscountPctV: Decimal): decimal;
+    var
+        DocumentTotals: Codeunit "Document Totals";
+        AmountWithDiscountAllowed: Decimal;
+        InvoiceDiscountAmount: decimal;
+        CurrencyL: Record Currency;
+        TotalSalesline: record "Sales Line";
+    begin
+        TotalSalesline.SetRange("Document Type", SalesHeader."Document Type");
+        TotalSalesline.SetRange("Document No.", SalesHeader."No.");
+        if TotalSalesline.FindSet() then begin
+
+            CurrencyL.InitRoundingPrecision();
+            AmountWithDiscountAllowed := DocumentTotals.CalcTotalSalesAmountOnlyDiscountAllowed(TotalSalesLine);
+            InvoiceDiscountAmount := Round(AmountWithDiscountAllowed * DiscountPctV / 100, CurrencyL."Amount Rounding Precision");
+            exit(InvoiceDiscountAmount);
+        end;
+        exit(0);
     end;
 
 

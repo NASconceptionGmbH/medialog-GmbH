@@ -164,6 +164,12 @@ table 60733 "Excel Import Orders"
             Caption = 'error';
             DataClassification = ToBeClassified;
         }
+        field(30; "BC Order No."; code[20])
+        {
+            Caption = 'BC Order No.';
+            DataClassification = ToBeClassified;
+        }
+
 
 
 

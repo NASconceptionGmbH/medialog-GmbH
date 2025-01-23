@@ -113,6 +113,22 @@ page 60734 "Excel Invoice Orders"
     {
         area(processing)
         {
+            action("Order")
+            {
+                Caption = '&Order';
+                Image = Order;
+                Promoted = true;
+                PromotedCategory = Process;
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    SalesHeaderL: Record "Sales Header";
+                begin
+                    if SalesHeaderL.get(SalesHeaderL."Document Type"::Order, Rec."BC Order No.") then
+                        page.run(page::"Sales Order", SalesHeaderL);
+                end;
+            }
             action("&Import")
             {
                 Caption = '&Import';
@@ -149,7 +165,7 @@ page 60734 "Excel Invoice Orders"
                         repeat
                             if not ExcelImportProcessorOrders.run(ExcelImportOrdersL) then begin
                                 ExcelImportOrdersL2.get(ExcelImportOrdersL."Entry No");
-                                ExcelImportOrdersL2.error := GetLastErrorText();
+                                ExcelImportOrdersL2.error := copystr(GetLastErrorText(), 1, 250);
                             end else begin
                                 ExcelImportOrdersL2.get(ExcelImportOrdersL."Entry No");
                                 ExcelImportOrdersL2.error := '';
@@ -174,8 +190,15 @@ page 60734 "Excel Invoice Orders"
                 trigger OnAction()
                 var
                     ExcelImportOrdersL: Record "Excel Import Orders";
+                    SalesHeaderL: Record "Sales Header";
+                    SalesLineL: Record "Sales Line";
+                    IssueAd: Record "Issue Ad";
                 begin
                     ExcelImportOrdersL.DeleteAll();
+                    if Confirm('delete orders as well?') then begin
+                        SalesHeaderL.DeleteAll(true);
+                        IssueAd.DeleteAll(true);
+                    end;
                 end;
             }
 
