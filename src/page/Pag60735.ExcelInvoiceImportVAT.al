@@ -1,13 +1,13 @@
-page 60735 "Excel Invoice Import VAT"
+page 60735 "Excel Invoice Import SP"
 {
     AutoSplitKey = true;
-    Caption = 'Excel Import Worksheet VAT';
+    Caption = 'Excel Import Worksheet Salesperson';
     DelayedInsert = true;
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
     // SaveValues = true;
-    SourceTable = "Excel Import Header VAT";
+    SourceTable = "Excel Import Header SP";
     // SourceTableView = sorting("Batch Name", "Line No.");
     UsageCategory = Administration;
     ApplicationArea = All;
@@ -19,19 +19,20 @@ page 60735 "Excel Invoice Import VAT"
 
             repeater(Group)
             {
+                field("order no"; Rec."order no")
+                {
+                }
+                field(Salesperson; Rec.Salesperson)
+                {
+                }
+                field(Clerk; Rec.Clerk)
+                {
+                }
 
                 // field("Entry No"; Rec."Entry No")
                 // {
                 // }
-                field(id_location; Rec.id_location)
-                {
-                }
-                field(id_juristic_person; Rec.id_juristic_person)
-                {
-                }
-                field("ust id"; Rec."ust id")
-                {
-                }
+
 
 
                 field(processed; Rec.processed)
@@ -61,7 +62,7 @@ page 60735 "Excel Invoice Import VAT"
 
                 trigger OnAction()
                 var
-                    ExcelImportProcessorEmailL: Codeunit ExcelImportProcessorVAT;
+                    ExcelImportProcessorEmailL: Codeunit ExcelImportProcessorSP;
                 begin
                     ExcelImportProcessorEmailL.ImportExcel();
                 end;
@@ -76,9 +77,9 @@ page 60735 "Excel Invoice Import VAT"
 
                 trigger OnAction()
                 var
-                    ExcelImportProcessorVATL: Codeunit ExcelImportProcessorVAT;
-                    ExcelImportHeaderVATL: Record "Excel Import Header VAT";
-                    ExcelImportHeaderVATL2: Record "Excel Import Header VAT";
+                    ExcelImportProcessorVATL: Codeunit ExcelImportProcessorSP;
+                    ExcelImportHeaderVATL: Record "Excel Import Header SP";
+                    ExcelImportHeaderVATL2: Record "Excel Import Header SP";
                 begin
                     ExcelImportHeaderVATL.SetRange(processed, false);
                     if ExcelImportHeaderVATL.FindSet() then
@@ -109,7 +110,7 @@ page 60735 "Excel Invoice Import VAT"
 
                 trigger OnAction()
                 var
-                    ExcelInvoiceImportHeaderVATL: Record "Excel Import Header VAT";
+                    ExcelInvoiceImportHeaderVATL: Record "Excel Import Header SP";
                 begin
                     ExcelInvoiceImportHeaderVATL.DeleteAll();
                 end;

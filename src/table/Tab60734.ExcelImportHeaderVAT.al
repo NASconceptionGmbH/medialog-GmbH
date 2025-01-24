@@ -1,6 +1,6 @@
-table 60734 "Excel Import Header VAT"
+table 60734 "Excel Import Header SP"
 {
-    Caption = 'Excel Import Header VAT';
+    Caption = 'Excel Import Header Salesperson';
 
     fields
     {
@@ -10,19 +10,20 @@ table 60734 "Excel Import Header VAT"
             DataClassification = ToBeClassified;
             AutoIncrement = true;
         }
-        field(2; "id_location"; text[100])
+        field(2; "order no"; code[20])
         {
-            Caption = 'id_location';
+            Caption = 'order no';
             DataClassification = ToBeClassified;
         }
-        field(3; "id_juristic_person"; Text[100])
+        field(3; "Salesperson"; Code[20])
         {
-            Caption = 'id_juristic_person';
+            Caption = 'Salesperson';
             DataClassification = ToBeClassified;
         }
-        field(4; "ust id"; text[50])
+
+        field(4; "Clerk"; Code[20])
         {
-            Caption = 'ust id';
+            Caption = 'Clerk';
             DataClassification = ToBeClassified;
         }
 

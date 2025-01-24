@@ -1,19 +1,17 @@
-codeunit 60734 ExcelImportProcessorVAT
+codeunit 60734 ExcelImportProcessorSP
 {
-    TableNo = "Excel Import Header VAT";
+    TableNo = "Excel Import Header SP";
     trigger OnRun()
     var
-        CustomerL: Record Customer;
+        SalesHeaderL: Record "Sales Header";
     begin
-        CustomerL.setrange(vv_id_location, Rec.id_location);
-        if not CustomerL.FindFirst() then begin
-            CustomerL.Reset();
-            CustomerL.SetRange(vv_idjuristicperson, Rec.id_juristic_person);
-            CustomerL.FindFirst()
+        SalesHeaderL.SetRange("Document Type", SalesHeaderL."Document Type"::Order);
+        SalesHeaderL.SetRange("No.", Rec."order no");
+        if SalesHeaderL.FindFirst() then begin
+            SalesHeaderL."Salesperson Code" := Rec.Salesperson;
+            SalesHeaderL.Clerk := Rec.Clerk;
+            SalesHeaderL.modify();
         end;
-
-        CustomerL.validate("VAT Registration No.", copystr(Rec."ust id", 1, 20));
-        CustomerL.Modify();
     end;
 
 
@@ -57,7 +55,7 @@ codeunit 60734 ExcelImportProcessorVAT
 
     local procedure ImportHeaderData();
     var
-        ExcelImportHeaderL: Record "Excel Import Header VAT";
+        ExcelImportHeaderL: Record "Excel Import Header SP";
         LineNo: Integer;
     begin
         LineNo := 0;
@@ -66,9 +64,9 @@ codeunit 60734 ExcelImportProcessorVAT
         for RowNo := 2 to MaxRowNo do begin
             ExcelImportHeaderL.Init();
             ExcelImportHeaderL."Entry No" := 0;
-            Evaluate(ExcelImportHeaderL.id_location, GetValueAtCell(RowNo, 1));
-            Evaluate(ExcelImportHeaderL.id_juristic_person, GetValueAtCell(RowNo, 2));
-            Evaluate(ExcelImportHeaderL."ust id", GetValueAtCell(RowNo, 3));
+            Evaluate(ExcelImportHeaderL."order no", GetValueAtCell(RowNo, 1));
+            Evaluate(ExcelImportHeaderL.Salesperson, GetValueAtCell(RowNo, 2));
+            Evaluate(ExcelImportHeaderL.clerk, GetValueAtCell(RowNo, 3));
 
             ExcelImportHeaderL.Insert();
         end;
