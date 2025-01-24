@@ -195,10 +195,10 @@ page 60734 "Excel Invoice Orders"
                     IssueAd: Record "Issue Ad";
                 begin
                     ExcelImportOrdersL.DeleteAll();
-                    if Confirm('delete orders as well?') then begin
-                        SalesHeaderL.DeleteAll(true);
-                        IssueAd.DeleteAll(true);
-                    end;
+                    // if Confirm('delete orders as well?') then begin
+                    //     SalesHeaderL.DeleteAll(true);
+                    //     IssueAd.DeleteAll(true);
+                    // end;
                 end;
             }
 
