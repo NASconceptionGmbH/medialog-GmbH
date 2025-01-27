@@ -78,7 +78,19 @@ pageextension 60705 "Sales Line Sub Ext." extends "Sales Order Subform"
 
     actions
     {
-        // Add changes to page actions here
+        addlast(processing)
+        {
+            action(ActionName)
+            {
+                ApplicationArea = All;
+
+                trigger OnAction()
+                begin
+                    Rec."Quantity Invoiced" := Rec.Quantity;
+                    Rec."Qty. Invoiced (Base)" := Rec."Quantity (Base)"
+                end;
+            }
+        }
     }
 
     var

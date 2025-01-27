@@ -3,6 +3,7 @@ report 60703 "VVAV-55"
     UsageCategory = Administration;
     ApplicationArea = All;
     Caption = 'Fill Item Variant Description';
+    ProcessingOnly = true;
     dataset
     {
         dataitem(DataItemVariant; "Item Variant")
@@ -13,7 +14,9 @@ report 60703 "VVAV-55"
             var
                 ItemL: Record Item;
                 ItemVariantL: Record "Item Variant";
+                stop: text;
             begin
+
                 Iteml.Get(DataItemVariant."Item No.");
                 If ItemL."Template Item" <> '' then begin
                     ItemVariantL.SetRange("Item No.", ItemL."Template Item");
@@ -21,6 +24,8 @@ report 60703 "VVAV-55"
                     If ItemVariantL.FindFirst() then begin
                         DataItemVariant.Description := ItemVariantL.Description;
                         DataItemVariant."Description 2" := ItemVariantL."Description 2";
+                        DataItemVariant."VAT Product Posting Group" := ItemVariantL."VAT Product Posting Group";
+                        DataItemVariant."Gen. Product Posting Group" := ItemVariantL."Gen. Product Posting Group";
                         DataItemVariant.Modify();
                     end;
                 end;
@@ -30,6 +35,8 @@ report 60703 "VVAV-55"
                     If ItemVariantL.FindFirst() then begin
                         DataItemVariant.Description := ItemVariantL.Description;
                         DataItemVariant."Description 2" := ItemVariantL."Description 2";
+                        DataItemVariant."VAT Product Posting Group" := ItemVariantL."VAT Product Posting Group";
+                        DataItemVariant."Gen. Product Posting Group" := ItemVariantL."Gen. Product Posting Group";
                         DataItemVariant.Modify();
                     end;
                 end;

@@ -1764,7 +1764,7 @@ report 60704 "Sales Invoice CC NAS"
 
                 end else begin
                     HeaderText2G := 'Rechnung an Deb.-Nr. ';
-                    HyperlinkForFooterURL_Url := 'https://www.vulkan-verlag.de/service/datenschutz/';
+                    HyperlinkForFooterURL_Url := 'https://www.medialog.de/impressum';
                     HyperlinkForFooterURL_UrlText := 'hier';
                     HeaderTextG := 'Vielen Dank für Ihre Bestellung. Im Anhang können Sie die Rechnung finden.';
                     ClosingTextG := 'Mit freundlichen Grüßen';
