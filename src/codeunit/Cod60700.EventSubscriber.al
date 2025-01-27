@@ -272,9 +272,9 @@ codeunit 60700 "EventSubscriber"
         // if (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) AND (SalesHeader."Is Handled" = false) then begin
         //     CustomCRMSynchronization.SendOrderConfirmationPDFtoCRM(SalesHeader."No.");
         // end
-        if (SalesHeader."Document Type" = SalesHeader."Document Type"::Quote) then begin
-            CustomCRMSynchronization.SendOrderConfirmationPDFtoCRM(SalesHeader."No.");
-        end
+        // if (SalesHeader."Document Type" = SalesHeader."Document Type"::Quote) then begin
+        //     CustomCRMSynchronization.SendOrderConfirmationPDFtoCRM(SalesHeader."No.");
+        // end
     end;
 
 
