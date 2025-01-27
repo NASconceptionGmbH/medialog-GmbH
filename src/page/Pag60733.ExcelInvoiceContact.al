@@ -110,6 +110,29 @@ page 60733 "Excel Invoice Contact"
                 end;
 
             }
+            action(UpdateMail)
+            {
+                Caption = 'Update Mail';
+                Image = Email;
+                Promoted = true;
+                PromotedCategory = Process;
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    ContactL: Record Contact;
+                    ExcelImportContactL: Record "Excel Import Contact";
+                begin
+                    ExcelImportContactL.FindSet();
+                    repeat
+                        ContactL.SetRange("id location", ExcelImportContactL.id_location);
+                        if ContactL.FindFirst() then begin
+                            ContactL."E-Mail" := ExcelImportContactL.Email;
+                            ContactL.modify();
+                        end;
+                    until ExcelImportContactL.next() = 0;
+                end;
+            }
 
             action(DeleteAll)
             {
