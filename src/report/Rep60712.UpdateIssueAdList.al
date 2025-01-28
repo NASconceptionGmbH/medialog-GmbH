@@ -11,6 +11,11 @@ report 60712 "Update Issue Ad List"
         {
             DataItemTableView = where("Variant Code" = filter(<> ''), Quantity = filter(> 0));
 
+            trigger OnPreDataItem()
+            begin
+                SalesInvoiceLine.Setfilter(SystemModifiedAt, '>=%1', IssueSetupL."Last Issue Ad Update");
+            end;
+
             trigger
             OnAfterGetRecord()
             var
@@ -66,6 +71,11 @@ report 60712 "Update Issue Ad List"
         {
             DataItemTableView = where("Variant Code" = filter(<> ''), Quantity = filter(> 0));
 
+            trigger OnPreDataItem()
+            begin
+                SalesCrMemoLine.Setfilter(SystemModifiedAt, '>=%1', IssueSetupL."Last Issue Ad Update");
+            end;
+
             trigger
             OnAfterGetRecord()
             var
@@ -118,6 +128,12 @@ report 60712 "Update Issue Ad List"
         dataitem(SalesLine; "Sales Line")
         {
             DataItemTableView = where("Variant Code" = filter(<> ''), Quantity = filter(> 0), "Document Type" = const(Order));
+
+            trigger OnPreDataItem()
+            begin
+                SalesLine.Setfilter(SystemModifiedAt, '>=%1', IssueSetupL."Last Issue Ad Update");
+            end;
+
             trigger
             OnAfterGetRecord()
             var
@@ -150,12 +166,40 @@ report 60712 "Update Issue Ad List"
                     If SalesHeaderL."Commission Salesperson 2" <> 0 then
                         IssueAdL."Commission Amount 2" := IssueAdL.CalcCommission(SalesCrMemoLine.Amount, SalesHeaderL."Commission Salesperson 2");
                     IssueAdL.Insert(true);
+                end else begin
+                    ItemVariantL.Get(SalesLine."No.", SalesLine."Variant Code");
+                    SalesHeaderL.Get(SalesLine."Document Type", SalesLine."Document No.");
+                    if IssueAdL."Item No." <> SalesLine."No." then
+                        IssueAdL.Validate("Item No.", SalesLine."No.");
+                    if IssueAdL."Variant Code" <> SalesLine."Variant Code" then
+                        IssueAdL.Validate("Variant Code", SalesLine."Variant Code");
+                    IssueAdL.Validate("Unit Price", SalesLine."Unit Price");
+                    IssueAdL.Validate("Line Amount Excl. VAT", SalesLine.Amount);
+                    IssueAdL.Validate("Sell-to Customer No.", SalesLine."Sell-to Customer No.");
+                    IssueAdL."Sales Person Code" := SalesHeaderL."Salesperson Code";
+                    IssueAdL."Salesperson 2" := SalesHeaderL."Salesperson Code 2";
+                    IssueAdL.Clerk := SalesHeaderL.Clerk;
+                    IssueAdL."Line Amount" := SalesLine."Amount Including VAT";
+                    IssueAdL."Ship-to Name" := SalesHeaderL."Ship-to Name";
+                    IssueAdL.Validate(Format, ItemVariantL.Description);
+                    IssueAdL."Commission %" := SalesHeaderL."Commission Salesperson";
+                    IssueAdL."Commission 2 %" := SalesHeaderL."Commission Salesperson 2";
+                    IF SalesHeaderL."Commission Salesperson" <> 0 then
+                        IssueAdL."Commission Amount" := IssueAdL.CalcCommission(SalesCrMemoLine.Amount, SalesHeaderL."Commission Salesperson");
+                    If SalesHeaderL."Commission Salesperson 2" <> 0 then
+                        IssueAdL."Commission Amount 2" := IssueAdL.CalcCommission(SalesCrMemoLine.Amount, SalesHeaderL."Commission Salesperson 2");
+                    IssueAdL.modify(true);
                 end;
             end;
         }
         dataitem(PurchaseInvoiceLine; "Purch. Inv. Line")
         {
             DataItemTableView = where("Variant Code" = filter(<> ''), Quantity = filter(> 0));
+
+            trigger OnPreDataItem()
+            begin
+                PurchaseInvoiceLine.Setfilter(SystemModifiedAt, '>=%1', IssueSetupL."Last Issue Ad Update");
+            end;
 
             trigger
             OnAfterGetRecord()
@@ -271,6 +315,12 @@ report 60712 "Update Issue Ad List"
         dataitem(PurchaseLine; "Purchase Line")
         {
             DataItemTableView = where("Variant Code" = filter(<> ''), Quantity = filter(> 0));
+
+            trigger OnPreDataItem()
+            begin
+                PurchaseLine.Setfilter(SystemModifiedAt, '>=%1', IssueSetupL."Last Issue Ad Update");
+            end;
+
             trigger
             OnAfterGetRecord()
             var
@@ -358,12 +408,22 @@ report 60712 "Update Issue Ad List"
             }
         }
     }
+
+    trigger OnInitReport()
+    begin
+        IssueSetupL.Get();
+    end;
+
     trigger
     OnPostReport()
     begin
+
+        IssueSetupL."Last Issue Ad Update" := CurrentDateTime;
+        IssueSetupL.modify();
+
         Message('Done');
     end;
 
     var
-        myInt: Integer;
+        IssueSetupL: Record "Issue Setup";
 }
