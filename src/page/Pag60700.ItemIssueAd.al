@@ -139,8 +139,14 @@ page 60700 "Item Issue Ad"
                 {
                     ApplicationArea = All;
                 }
-
-
+                field("Start Date"; Rec."Start Date")
+                {
+                    ApplicationArea = All;
+                }
+                field("End Date"; Rec."End Date")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }
