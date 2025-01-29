@@ -195,6 +195,8 @@ codeunit 60708 "ExcelIssueFunctions"
                 ExcelBufferR.AddColumn('Buchungsdatum', false, '', true, false, true, '', ExcelBufferR."Cell Type"::Text);
                 ExcelBufferR.AddColumn('Rechnungsnummer', false, '', true, false, true, '', ExcelBufferR."Cell Type"::Text);
                 ExcelBufferR.AddColumn('Verkaufsauftragnummer', false, '', true, false, true, '', ExcelBufferR."Cell Type"::Text);
+                ExcelBufferR.AddColumn('Startdatum', false, '', false, false, false, '', ExcelBufferR."Cell Type"::Date);
+                ExcelBufferR.AddColumn('Enddatum', false, '', false, false, false, '', ExcelBufferR."Cell Type"::Date);
                 repeat
                     ExcelBufferR.NewRow();
                     ExcelBufferR.AddColumn(IssueAdL."Variant Code", false, '', false, false, false, '', ExcelBufferR."Cell Type"::Text);
@@ -223,6 +225,8 @@ codeunit 60708 "ExcelIssueFunctions"
                     ExcelBufferR.AddColumn(IssueAdL."Invoice Date", false, '', false, false, false, '', ExcelBufferR."Cell Type"::Date);
                     ExcelBufferR.AddColumn(IssueAdL."Invoice No.", false, '', false, false, false, '', ExcelBufferR."Cell Type"::Text);
                     ExcelBufferR.AddColumn(IssueAdL."Sales Order No.", false, '', false, false, false, '', ExcelBufferR."Cell Type"::Text);
+                    ExcelBufferR.AddColumn(IssueAdL."Start Date", false, '', false, false, false, '', ExcelBufferR."Cell Type"::Date);
+                    ExcelBufferR.AddColumn(IssueAdL."End Date", false, '', false, false, false, '', ExcelBufferR."Cell Type"::Date);
                 until IssueAdL.Next() = 0;
 
                 ExcelBufferR.WriteSheet('Dispoliste', CompanyName, UserId);
