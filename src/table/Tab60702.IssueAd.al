@@ -218,6 +218,16 @@ table 60702 "Issue Ad"
             DataClassification = ToBeClassified;
             Caption = 'Purchase', Comment = 'DEU="Einkauf"';
         }
+        field(38; "Start Date"; Date)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Start Date';
+        }
+        field(39; "End Date"; Date)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'End Date';
+        }
     }
     keys
     {
