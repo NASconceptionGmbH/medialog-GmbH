@@ -202,6 +202,7 @@ codeunit 60733 ExcelImportProcessorOrders
             Evaluate(ExcelImportOrdersL.Platzierung, GetValueAtCell(RowNo, 18));
             Evaluate(ExcelImportOrdersL.Zusatzzeile, GetValueAtCell(RowNo, 19));
             Evaluate(ExcelImportOrdersL."Externe Belegnummer", GetValueAtCell(RowNo, 20));
+            Evaluate(ExcelImportOrdersL."schaltung_state", GetValueAtCell(RowNo, 21));
             Evaluate(ExcelImportOrdersL.Zeilenrabatt, GetValueAtCellNumber(RowNo, 22));
             Evaluate(ExcelImportOrdersL."Rabatt Betrag", GetValueAtCellNumber(RowNo, 23));
             Evaluate(ExcelImportOrdersL."VK Netto", GetValueAtCellNumber(RowNo, 24));

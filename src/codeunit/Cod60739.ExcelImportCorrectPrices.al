@@ -41,6 +41,7 @@ codeunit 60739 ExcelImportCorrectPrices
             until SalesLineL.next() = 0;
     end;
 
+
     local procedure GetInvoiceDiscountAmount(SalesHeader: record "Sales Header"; DiscountPctV: Decimal): decimal;
     var
         DocumentTotals: Codeunit "Document Totals";

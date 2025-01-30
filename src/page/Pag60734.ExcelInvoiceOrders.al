@@ -79,6 +79,11 @@ page 60734 "Excel Invoice Orders"
                 field("Externe Belegnummer"; Rec."Externe Belegnummer")
                 {
                 }
+                field(schaltung; Rec."schaltung_state")
+                {
+                    ApplicationArea = All;
+                }
+
                 field(Zeilenrabatt; Rec.Zeilenrabatt)
                 {
                 }
@@ -145,39 +150,39 @@ page 60734 "Excel Invoice Orders"
                     ExcelImportProcessorOrdersL.ImportExcel();
                 end;
             }
-            action("Process")
-            {
-                Caption = 'Process';
-                Image = Invoice;
-                Promoted = true;
-                PromotedCategory = Process;
-                ApplicationArea = All;
+            // action("Process")
+            // {
+            //     Caption = 'Process';
+            //     Image = Invoice;
+            //     Promoted = true;
+            //     PromotedCategory = Process;
+            //     ApplicationArea = All;
 
-                trigger OnAction()
-                var
-                    ExcelImportProcessorOrders: Codeunit ExcelImportProcessorOrders;
-                    ContactL: Record Contact;
-                    ExcelImportOrdersL: Record "Excel Import Orders";
-                    ExcelImportOrdersL2: Record "Excel Import Orders";
-                begin
-                    ExcelImportOrdersL.SetRange(processed, false);
-                    if ExcelImportOrdersL.FindSet() then
-                        repeat
-                            if not ExcelImportProcessorOrders.run(ExcelImportOrdersL) then begin
-                                ExcelImportOrdersL2.get(ExcelImportOrdersL."Entry No");
-                                ExcelImportOrdersL2.error := copystr(GetLastErrorText(), 1, 250);
-                            end else begin
-                                ExcelImportOrdersL2.get(ExcelImportOrdersL."Entry No");
-                                ExcelImportOrdersL2.error := '';
-                                ExcelImportOrdersL2.processed := true;
-                            end;
-                            ExcelImportOrdersL2.Modify();
-                            commit();
-                        until ExcelImportOrdersL.next() = 0;
+            //     trigger OnAction()
+            //     var
+            //         ExcelImportProcessorOrders: Codeunit ExcelImportProcessorOrders;
+            //         ContactL: Record Contact;
+            //         ExcelImportOrdersL: Record "Excel Import Orders";
+            //         ExcelImportOrdersL2: Record "Excel Import Orders";
+            //     begin
+            //         ExcelImportOrdersL.SetRange(processed, false);
+            //         if ExcelImportOrdersL.FindSet() then
+            //             repeat
+            //                 if not ExcelImportProcessorOrders.run(ExcelImportOrdersL) then begin
+            //                     ExcelImportOrdersL2.get(ExcelImportOrdersL."Entry No");
+            //                     ExcelImportOrdersL2.error := copystr(GetLastErrorText(), 1, 250);
+            //                 end else begin
+            //                     ExcelImportOrdersL2.get(ExcelImportOrdersL."Entry No");
+            //                     ExcelImportOrdersL2.error := '';
+            //                     ExcelImportOrdersL2.processed := true;
+            //                 end;
+            //                 ExcelImportOrdersL2.Modify();
+            //                 commit();
+            //             until ExcelImportOrdersL.next() = 0;
 
-                end;
+            //     end;
 
-            }
+            // }
 
             action(DeleteAll)
             {

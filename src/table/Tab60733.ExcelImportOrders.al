@@ -143,6 +143,11 @@ table 60733 "Excel Import Orders"
             DataClassification = ToBeClassified;
         }
 
+        field(31; "schaltung_state"; text[150])
+        {
+            Caption = 'schaltung';
+            DataClassification = ToBeClassified;
+        }
 
 
 
