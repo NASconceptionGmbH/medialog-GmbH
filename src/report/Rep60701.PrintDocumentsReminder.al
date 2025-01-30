@@ -224,5 +224,5 @@ report 60701 "Print Documents Reminder"
         EmailBody16: Label 'You can find our complete legal notice at';
         EmailBody17: label 'You can find our information on handling personal data at';
         EmailBody18: Label 'This email contains confidential or legally protected information. If you are not the intended recipient, please inform us immediately and delete this e-mail and its attachments. The unauthorized copying of this email and the unauthorized disclosure of the information contained therein are not permitted. Many Thanks.';
-        EmailBodyLink: Label 'https://www.vulkan-verlag.de/service/impressum/';
+        EmailBodyLink: Label 'https://www.medialog.de/impressum/';
 }
