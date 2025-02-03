@@ -8518,6 +8518,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Category Ext - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3157849480 - Field 474480784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Date</source>
+          <target>Startdatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Issue Ad - Field Start Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3157849480 - Field 2649176925 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End Date</source>
+          <target>Enddatum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Issue Ad - Field End Date - Property Caption</note>
+        </trans-unit>
       </group>
     </body>
   </file>
