@@ -36,6 +36,9 @@ page 60736 "Item Issues"
                 field(salesOrderNo; Rec."Sales Order No.")
                 {
                 }
+                field(createdDate; Rec."Created Date")
+                {
+                }
             }
         }
     }
