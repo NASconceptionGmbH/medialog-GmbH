@@ -157,6 +157,14 @@ page 60702 "Item Issue Subform"
                     ToolTip = 'Specifies the value of the Sales Person Code field';
                     ApplicationArea = All;
                 }
+                field("Start Date"; Rec."Start Date")
+                {
+                    ApplicationArea = All;
+                }
+                field("End Date"; Rec."End Date")
+                {
+                    ApplicationArea = All;
+                }
                 field(Clerk; Rec.Clerk)
                 {
                     ApplicationArea = All;
