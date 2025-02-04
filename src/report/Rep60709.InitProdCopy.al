@@ -26,7 +26,7 @@ report 60709 "InitProdCopy"
                 if EnvironmentInformation.IsProduction() then
                     CurrReport.Skip();
 
-                "SiteID 1" := 'vulkanverlag.sharepoint.com,a8dd98dd-c337-4caa-901d-36466d949ea5,751fc366-0580-415e-8d34-7ee7190589c0';
+                "SiteID 1" := 'e9635501-382a-41f0-b2a8-5f8de586b8df';
                 Modify()
             end;
         }
@@ -37,11 +37,11 @@ report 60709 "InitProdCopy"
                 if EnvironmentInformation.IsProduction() then
                     CurrReport.Skip();
 
-                "CRM URL" := 'https://vulkanverlagtest.crm4.dynamics.com/';
-                "API URL" := 'https://vulkanverlagtest.api.crm4.dynamics.com/api/data/v9.2/';
-                "Sharepoint Doc Location GUID" := '50d666d3-6ce5-eb11-bacb-000d3ab7e4ce';
-                DriveID := 'b!3ZjdqDfDqkyQHTZGbZSepWbDH3WABV5BjTR-5xkFicCPtZoUV65cS7m14tZdfwDo';
-                modify();
+                // "CRM URL" := 'https://vulkanverlagtest.crm4.dynamics.com/';
+                // "API URL" := 'https://vulkanverlagtest.api.crm4.dynamics.com/api/data/v9.2/';
+                // "Sharepoint Doc Location GUID" := '50d666d3-6ce5-eb11-bacb-000d3ab7e4ce';
+                // DriveID := 'b!3ZjdqDfDqkyQHTZGbZSepWbDH3WABV5BjTR-5xkFicCPtZoUV65cS7m14tZdfwDo';
+                // modify();
 
             end;
         }
