@@ -171,6 +171,16 @@ table 60702 "Issue Ad"
             Caption = 'Sachbearbeiter';
             TableRelation = "Salesperson/Purchaser";
             DataClassification = ToBeClassified;
+            trigger OnValidate()
+            var
+                SalespersonL: Record "Salesperson/Purchaser";
+            begin
+                if Clerk <> '' then begin
+                    SalespersonL.Get(Clerk);
+                    "E-Mail Salespersoncode" := SalespersonL."E-Mail"
+                end else
+                    "E-Mail Salespersoncode" := '';
+            end;
         }
         field(30; "Line Amount"; Decimal)
         {
@@ -227,6 +237,11 @@ table 60702 "Issue Ad"
         {
             DataClassification = ToBeClassified;
             Caption = 'End Date';
+        }
+        field(40; "E-Mail Salespersoncode"; Text[50])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'E-Mail Salespersoncode';
         }
     }
     keys
