@@ -39,9 +39,6 @@ page 60736 "Item Issues"
                 field(createdDate; Rec."Created Date")
                 {
                 }
-                field(eMailSalespersoncode; Rec."E-Mail Salespersoncode")
-                {
-                }
             }
         }
     }
