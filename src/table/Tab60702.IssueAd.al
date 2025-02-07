@@ -222,11 +222,25 @@ table 60702 "Issue Ad"
         {
             DataClassification = ToBeClassified;
             Caption = 'Start Date';
+            trigger OnValidate()
+            var
+                SalespersonL: Record "Salesperson/Purchaser";
+            begin
+                if SalespersonL.Get(Rec."Sales Person Code") then
+                    CalcFields("Salesperson E-Mail");
+            end;
         }
         field(39; "End Date"; Date)
         {
             DataClassification = ToBeClassified;
             Caption = 'End Date';
+        }
+        field(40; "Salesperson E-Mail"; Text[80])
+        {
+            Caption = 'Salesperson Mail';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("Salesperson/Purchaser"."E-Mail" where(Code = field("Sales Person Code")));
         }
     }
     keys

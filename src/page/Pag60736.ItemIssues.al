@@ -39,6 +39,9 @@ page 60736 "Item Issues"
                 field(salesOrderNo; Rec."Sales Order No.")
                 {
                 }
+                field(salespersonMail; Rec."Salesperson E-Mail")
+                {
+                }
             }
         }
     }
