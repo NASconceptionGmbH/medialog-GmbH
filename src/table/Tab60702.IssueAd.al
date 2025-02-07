@@ -222,6 +222,13 @@ table 60702 "Issue Ad"
         {
             DataClassification = ToBeClassified;
             Caption = 'Start Date';
+            trigger OnValidate()
+            var
+                SalespersonL: Record "Salesperson/Purchaser";
+            begin
+                if SalespersonL.Get(Rec."Sales Person Code") then
+                    CalcFields("Salesperson E-Mail");
+            end;
         }
         field(39; "End Date"; Date)
         {
