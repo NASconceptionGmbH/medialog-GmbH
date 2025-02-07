@@ -160,6 +160,14 @@ page 60702 "Item Issue Subform"
                 field("Start Date"; Rec."Start Date")
                 {
                     ApplicationArea = All;
+
+                    trigger OnValidate()
+                    var
+                        SalespersonL: Record "Salesperson/Purchaser";
+                    begin
+                        if SalespersonL.Get(Rec."Sales Person Code") then
+                            Rec.CalcFields("Salesperson E-Mail");
+                    end;
                 }
                 field("End Date"; Rec."End Date")
                 {
