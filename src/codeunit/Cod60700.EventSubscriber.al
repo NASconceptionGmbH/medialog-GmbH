@@ -590,30 +590,4 @@ codeunit 60700 "EventSubscriber"
                 end;
         end;
     end;
-
-
-    [EventSubscriber(ObjectType::Table, Database::"Issue Ad", 'OnAfterValidateEvent', 'Start Date', false, false)]
-    procedure OnAfterModifyRecord(var Rec: Record "Issue Ad"; var xRec: Record "Issue Ad")
-    var
-        HttpClient: HttpClient;
-        HttpRequestMessage: HttpRequestMessage;
-        HttpResponseMessage: HttpResponseMessage;
-        Content: HttpContent;
-        RequestHeader: HttpHeaders;
-        RequestBody: Text;
-        SalespersonL: Record "Salesperson/Purchaser";
-    begin
-        if Rec."Start Date" <> xRec."Start Date" then
-            if Rec."Start Date" >= Today then begin
-                SalespersonL.Get(Rec."Sales Person Code");
-                RequestHeader.Clear();
-                RequestBody := '{' + ' "Verkaufsauftrag": "' + Format(Rec."Sales Order No.") + '",' + ' "Startdatum": "' + Format(Rec."Start Date") + '",' + ' "Mail": "' + Format(SalespersonL."E-Mail") + '"' + ' }';
-                HttpRequestMessage.Method := 'POST';
-                HttpRequestMessage.SetRequestUri('https://prod-20.germanywestcentral.logic.azure.com:443/workflows/6f92d8e57add438eb0a08beefbc616bc/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=QifLU1Ts7xpfyKoVB0I1BWt42fcrm7bpK87nAzFRqfA');
-                Content.ReadAs(RequestBody);
-                HttpRequestMessage.Content(Content);
-                if not HttpClient.Send(HttpRequestMessage, HttpResponseMessage) then
-                    Error('HTTP-Anfrage fehlgeschlagen');
-            end;
-    end;
 }
