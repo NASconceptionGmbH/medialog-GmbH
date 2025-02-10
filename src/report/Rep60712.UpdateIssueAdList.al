@@ -125,6 +125,34 @@ report 60712 "Update Issue Ad List"
 
             end;
         }
+        dataitem(SalesHeader; "Sales Header")
+        {
+            DataItemTableView = where("Document Type" = const(Order));
+
+            trigger OnPreDataItem()
+            begin
+                SalesHeader.Setfilter(SystemModifiedAt, '>=%1', IssueSetupL."Last Issue Ad Update");
+            end;
+
+            trigger
+            OnAfterGetRecord()
+            var
+                IssueAdL: Record "Issue Ad";
+                ItemVariantL: Record "Item Variant";
+            begin
+                IssueAdL.SetRange("Sales Order No.", SalesHeader."No.");
+                if IssueAdL.FindSet(true) then
+                    repeat
+                        IssueAdL."Sales Person Code" := SalesHeader."Salesperson Code";
+                        IssueAdL."Salesperson 2" := SalesHeader."Salesperson Code 2";
+                        IssueAdL.Clerk := SalesHeader.Clerk;
+                        IssueAdL."Ship-to Name" := SalesHeader."Ship-to Name";
+                        IssueAdL."Commission %" := SalesHeader."Commission Salesperson";
+                        IssueAdL."Commission 2 %" := SalesHeader."Commission Salesperson 2";
+                        IssueAdL.modify(true);
+                    until IssueAdL.next() = 0;
+            end;
+        }
         dataitem(SalesLine; "Sales Line")
         {
             DataItemTableView = where("Variant Code" = filter(<> ''), Quantity = filter(> 0), "Document Type" = const(Order));
