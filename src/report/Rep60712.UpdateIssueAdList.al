@@ -147,8 +147,6 @@ report 60712 "Update Issue Ad List"
                         IssueAdL."Salesperson 2" := SalesHeader."Salesperson Code 2";
                         IssueAdL.Clerk := SalesHeader.Clerk;
                         IssueAdL."Ship-to Name" := SalesHeader."Ship-to Name";
-                        IssueAdL."Commission %" := SalesHeader."Commission Salesperson";
-                        IssueAdL."Commission 2 %" := SalesHeader."Commission Salesperson 2";
                         IssueAdL.modify(true);
                     until IssueAdL.next() = 0;
             end;
