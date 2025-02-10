@@ -240,6 +240,18 @@ tableextension 60702 "Sales Header" extends "Sales Header"
             Caption = 'Jahresfaktur Kennzeichen';
             DataClassification = ToBeClassified;
         }
+        field(60718; "order state"; text[50])
+        {
+            Caption = 'order state';
+            DataClassification = ToBeClassified;
+        }
+        field(60719; "interfall Sammelrechnung"; text[50])
+        {
+            Caption = 'interfall Sammelrechnung';
+            DataClassification = ToBeClassified;
+        }
+
+
     }
     trigger
     OnDelete()

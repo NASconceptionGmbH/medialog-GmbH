@@ -81,6 +81,11 @@ table 60701 "Issue Setup"
             Caption = 'Skip CRM in OrderCreation (sandbox)';
             DataClassification = ToBeClassified;
         }
+        field(14; "Last Issue Ad Update"; DateTime)
+        {
+            Caption = 'Last Issue Ad Update';
+            DataClassification = ToBeClassified;
+        }
 
     }
 

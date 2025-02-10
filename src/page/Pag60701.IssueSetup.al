@@ -64,7 +64,10 @@ page 60701 "Issue Setup"
                 {
                     ApplicationArea = All;
                 }
-
+                field("Last Issue Ad Update"; Rec."Last Issue Ad Update")
+                {
+                    ApplicationArea = All;
+                }
 
             }
         }

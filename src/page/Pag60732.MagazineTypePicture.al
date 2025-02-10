@@ -1,7 +1,7 @@
 
 page 60732 "Magazine Type Picture"
 {
-    Caption = 'Magazine Type Picture';
+    Caption = 'Magazin Logo';
     DeleteAllowed = false;
     InsertAllowed = false;
     LinksAllowed = false;
