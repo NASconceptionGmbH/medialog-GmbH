@@ -458,13 +458,13 @@ report 60712 "Update Issue Ad List"
         CustomReportSelectionL: Record "Custom Report Selection";
     begin
 
-        CustomReportSelectionL.SetRange("Source Type", 18);
-        CustomReportSelectionL.SetRange("Source No.", SalesHeaderV."Sell-to Customer No.");
-        CustomReportSelectionL.SetRange(Usage, CustomReportSelectionL.Usage::"Print Doc Reminder");
-        If CustomReportSelectionL.FindFirst() then
-            exit(CustomReportSelectionL."Send To Email")
-        Else
-            exit(SalesHeaderV."Sell-to E-Mail");
+        // CustomReportSelectionL.SetRange("Source Type", 18);
+        // CustomReportSelectionL.SetRange("Source No.", SalesHeaderV."Sell-to Customer No.");
+        // CustomReportSelectionL.SetRange(Usage, CustomReportSelectionL.Usage::"Print Doc Reminder");
+        // If CustomReportSelectionL.FindFirst() then
+        //     exit(CustomReportSelectionL."Send To Email")
+        // Else
+        exit(SalesHeaderV."Sell-to E-Mail");
     end;
 
     var
