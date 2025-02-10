@@ -20,10 +20,12 @@ codeunit 60742 PostCodeCityFix
                 CRMIntegrationRecordL.SetRange("Table ID", Database::Customer);
                 CRMIntegrationRecordL.SetRange("Integration ID", CustomerL.SystemId);
                 if CRMIntegrationRecordL.findfirst() then begin
-                    CRMAccountL.GetBySystemId(CRMIntegrationRecordL."CRM ID");
-                    CustomerL.City := CRMAccountL.Address1_City;
-                    CustomerL."Post Code" := CRMAccountL.Address1_PostalCode;
-                    CustomerL.modify();
+                    CRMAccountL.setrange(Accountid, CRMIntegrationRecordL."CRM ID");
+                    if CRMAccountL.FindFirst() then begin
+                        CustomerL.City := CRMAccountL.Address1_City;
+                        CustomerL."Post Code" := CRMAccountL.Address1_PostalCode;
+                        CustomerL.modify();
+                    end;
                 end;
             until CustomerL.Next() = 0;
 
