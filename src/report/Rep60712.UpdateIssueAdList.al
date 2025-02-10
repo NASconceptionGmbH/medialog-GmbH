@@ -146,7 +146,7 @@ report 60712 "Update Issue Ad List"
                         IssueAdL."Sales Person Code" := SalesHeader."Salesperson Code";
                         IssueAdL."Salesperson 2" := SalesHeader."Salesperson Code 2";
                         IssueAdL.Clerk := SalesHeader.Clerk;
-                        IssueAdL.Email := GetEmail(SalesHeader);
+                        IssueAdL.Email := copystr(GetEmail(SalesHeader), 1, 50);
                         IssueAdL."Ship-to Name" := SalesHeader."Ship-to Name";
                         IssueAdL.modify(true);
                     until IssueAdL.next() = 0;
@@ -192,7 +192,7 @@ report 60712 "Update Issue Ad List"
                         IssueAdL."Commission Amount" := IssueAdL.CalcCommission(SalesCrMemoLine.Amount, SalesHeaderL."Commission Salesperson");
                     If SalesHeaderL."Commission Salesperson 2" <> 0 then
                         IssueAdL."Commission Amount 2" := IssueAdL.CalcCommission(SalesCrMemoLine.Amount, SalesHeaderL."Commission Salesperson 2");
-                    IssueAdL.Email := GetEmail(SalesHeader);
+                    IssueAdL.Email := copystr(GetEmail(SalesHeaderL), 1, 50);
                     IssueAdL.Insert(true);
                 end else begin
                     ItemVariantL.Get(SalesLine."No.", SalesLine."Variant Code");
@@ -216,7 +216,7 @@ report 60712 "Update Issue Ad List"
                         IssueAdL."Commission Amount" := IssueAdL.CalcCommission(SalesCrMemoLine.Amount, SalesHeaderL."Commission Salesperson");
                     If SalesHeaderL."Commission Salesperson 2" <> 0 then
                         IssueAdL."Commission Amount 2" := IssueAdL.CalcCommission(SalesCrMemoLine.Amount, SalesHeaderL."Commission Salesperson 2");
-                    IssueAdL.Email := GetEmail(SalesHeader);
+                    IssueAdL.Email := copystr(GetEmail(SalesHeaderL), 1, 50);
                     IssueAdL.modify(true);
                 end;
             end;
