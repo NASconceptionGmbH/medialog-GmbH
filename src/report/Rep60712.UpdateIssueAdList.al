@@ -146,6 +146,7 @@ report 60712 "Update Issue Ad List"
                         IssueAdL."Sales Person Code" := SalesHeader."Salesperson Code";
                         IssueAdL."Salesperson 2" := SalesHeader."Salesperson Code 2";
                         IssueAdL.Clerk := SalesHeader.Clerk;
+                        IssueAdL.Email := GetEmail(SalesHeader);
                         IssueAdL."Ship-to Name" := SalesHeader."Ship-to Name";
                         IssueAdL.modify(true);
                     until IssueAdL.next() = 0;
@@ -191,6 +192,7 @@ report 60712 "Update Issue Ad List"
                         IssueAdL."Commission Amount" := IssueAdL.CalcCommission(SalesCrMemoLine.Amount, SalesHeaderL."Commission Salesperson");
                     If SalesHeaderL."Commission Salesperson 2" <> 0 then
                         IssueAdL."Commission Amount 2" := IssueAdL.CalcCommission(SalesCrMemoLine.Amount, SalesHeaderL."Commission Salesperson 2");
+                    IssueAdL.Email := GetEmail(SalesHeader);
                     IssueAdL.Insert(true);
                 end else begin
                     ItemVariantL.Get(SalesLine."No.", SalesLine."Variant Code");
@@ -214,6 +216,7 @@ report 60712 "Update Issue Ad List"
                         IssueAdL."Commission Amount" := IssueAdL.CalcCommission(SalesCrMemoLine.Amount, SalesHeaderL."Commission Salesperson");
                     If SalesHeaderL."Commission Salesperson 2" <> 0 then
                         IssueAdL."Commission Amount 2" := IssueAdL.CalcCommission(SalesCrMemoLine.Amount, SalesHeaderL."Commission Salesperson 2");
+                    IssueAdL.Email := GetEmail(SalesHeader);
                     IssueAdL.modify(true);
                 end;
             end;
@@ -448,6 +451,20 @@ report 60712 "Update Issue Ad List"
         IssueSetupL.modify();
 
         Message('Done');
+    end;
+
+    local procedure GetEmail(SalesHeaderV: Record "Sales Header"): text[200]
+    var
+        CustomReportSelectionL: Record "Custom Report Selection";
+    begin
+
+        CustomReportSelectionL.SetRange("Source Type", 18);
+        CustomReportSelectionL.SetRange("Source No.", SalesHeaderV."Sell-to Customer No.");
+        CustomReportSelectionL.SetRange(Usage, CustomReportSelectionL.Usage::"Print Doc Reminder");
+        If CustomReportSelectionL.FindFirst() then
+            exit(CustomReportSelectionL."Send To Email")
+        Else
+            exit(SalesHeaderV."Sell-to E-Mail");
     end;
 
     var
