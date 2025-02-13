@@ -2104,6 +2104,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Issue Setup - Field Primary Key - Property Caption</note>
         </trans-unit>
+          <trans-unit id="Table 244173954 - Field 255730346 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mail Recip. for Issue Reminder</source>
+          <target>Mail Empfänger für Dispoliste</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Issue Setup - Field Mail Recip. for Issue Reminder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 529033128 - Field 1943560495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1487222247">
+          <source>Allow Startdate</source>
+          <target>Startdatum zulassen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Category - Field Allow Startdate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3157849480 - Field 474480784 - Method 2126772001 - NamedType 1629153267" size-unit="char" translate="yes" xml:space="preserve">
+          <source>It is not allowed to insert Startdate for Category Code: %1.</source>
+          <target>Es ist nicht erlaubt ein Startdatum für die Artikelkategorie: %1 einzutragen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Issue Ad - Field Start Date - Method OnValidate - NamedType NotAllowedForItemCategoryLbl</note>
+        </trans-unit>
         <trans-unit id="Table 244173954 - Field 2826377252 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Abo Verkäufercode</source>
           <target>Abo Verkäufercode</target>

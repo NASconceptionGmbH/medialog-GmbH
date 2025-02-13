@@ -68,6 +68,10 @@ page 60701 "Issue Setup"
                 {
                     ApplicationArea = All;
                 }
+                field("Mail Recip. for Issue Reminder"; Rec."Mail Recip. for Issue Reminder")
+                {
+                    ApplicationArea = All;
+                }
 
             }
         }
