@@ -33,13 +33,16 @@ page 60736 "Item Issues"
                 field(itemNo; Rec."Item No.")
                 {
                 }
+                field(itemDescription; Rec."Item Description")
+                {
+                }
                 field(variantCode; Rec."Variant Code")
                 {
                 }
                 field(salesOrderNo; Rec."Sales Order No.")
                 {
                 }
-                field(salespersonMail; Rec."Salesperson E-Mail")
+                field(MailRecipforIssueReminder; Rec."Mail Recip. for Issue Reminder")
                 {
                 }
             }

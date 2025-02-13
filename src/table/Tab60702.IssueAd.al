@@ -224,10 +224,19 @@ table 60702 "Issue Ad"
             Caption = 'Start Date';
             trigger OnValidate()
             var
-                SalespersonL: Record "Salesperson/Purchaser";
+                IssueSetupL: Record "Issue Setup";
+                ItemL: Record Item;
+                ItemCategoryL: Record "Item Category";
+                NotAllowedForItemCategoryLbl: Label 'It is not allowed to insert Startdate for Category Code: %1.';
             begin
-                if SalespersonL.Get(Rec."Sales Person Code") then
-                    CalcFields("Salesperson E-Mail");
+                if ItemL.Get("Item No.") then
+                    if ItemCategoryL.Get(ItemL."Item Category Code") then
+                        if not ItemCategoryL."Allow Startdate" then
+                            Error(NotAllowedForItemCategoryLbl, ItemCategoryL.Code);
+                CalcFields("Item Description");
+                IssueSetupL.Get();
+                IssueSetupL.TestField("Mail Recip. for Issue Reminder");
+                CalcFields("Mail Recip. for Issue Reminder");
             end;
         }
         field(39; "End Date"; Date)
@@ -235,12 +244,19 @@ table 60702 "Issue Ad"
             DataClassification = ToBeClassified;
             Caption = 'End Date';
         }
-        field(40; "Salesperson E-Mail"; Text[80])
+        field(40; "Mail Recip. for Issue Reminder"; Text[250])
         {
-            Caption = 'Salesperson Mail';
+            Caption = 'Mail Recip. for Issue Reminder';
             Editable = false;
             FieldClass = FlowField;
-            CalcFormula = lookup("Salesperson/Purchaser"."E-Mail" where(Code = field("Sales Person Code")));
+            CalcFormula = lookup("Issue Setup"."Mail Recip. for Issue Reminder");
+        }
+        field(41; "Item Description"; Text[100])
+        {
+            Caption = 'Item Description';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup(Item.Description where("No." = field("Item No.")));
         }
     }
     keys
