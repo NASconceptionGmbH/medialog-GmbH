@@ -20,10 +20,6 @@ page 60703 "Magazine Type Setup"
                 {
                     ApplicationArea = All;
                 }
-                field(Picture; Rec.Picture)
-                {
-                    ApplicationArea = All;
-                }
 
             }
         }
@@ -32,11 +28,24 @@ page 60703 "Magazine Type Setup"
             part(Magazin; "Magazine Type Picture")
             {
                 ApplicationArea = All;
+                Caption = 'Logo';
+                SubPageLink = code = field(Code);
             }
         }
     }
     actions
     {
+        area(Promoted)
+        {
+            actionref(ImportMultipleItemPictures_promoted; ImportMultipleItemPictures)
+            {
+
+            }
+            actionref(DeletePicture_promoted; DeletePicture)
+            {
+
+            }
+        }
 
         area(Processing)
         {
@@ -44,7 +53,7 @@ page 60703 "Magazine Type Setup"
             fileuploadaction(ImportMultipleItemPictures)
             {
                 ApplicationArea = All;
-                Caption = 'Import Multiple Item Pictures';
+                Caption = 'Logo hochladen';
                 Image = Import;
                 AllowMultipleFiles = false;
 
@@ -62,7 +71,7 @@ page 60703 "Magazine Type Setup"
                         FileName := FileMgt.GetFileNameWithoutExtension(CurrentFile.FileName);
                         if MagazineTypeL.Get(Rec.Code) then begin
                             Clear(MagazineTypeL.Picture);
-                            MagazineTypeL.Picture.ImportStream(InStr, 'Upload Item for Magazin Type: ' + Format(MagazineTypeL.Description));
+                            MagazineTypeL.Picture.ImportStream(InStr, 'Logo hochladen für Magazintyp: ' + Format(MagazineTypeL.Code));
                             MagazineTypeL."Has Picture" := true;
                             MagazineTypeL.Modify(true);
                         end;
@@ -73,9 +82,8 @@ page 60703 "Magazine Type Setup"
             action(DeletePicture)
             {
                 ApplicationArea = Basic, Suite;
-                Caption = 'Delete';
+                Caption = 'Logo löschen';
                 Image = Delete;
-                ToolTip = 'Delete the record.';
 
                 trigger OnAction()
                 begin
